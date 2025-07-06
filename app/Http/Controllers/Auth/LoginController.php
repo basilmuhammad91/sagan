@@ -21,6 +21,30 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        return redirect()->intended($this->redirectPath());
+        // For Inertia, we need to return a proper Inertia response
+        if ($request->wantsJson()) {
+            return response()->json(['redirect' => '/']);
+        }
+
+        return Inertia::location('/');
+    }
+
+     protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+
+        // For Inertia requests, return a location response
+        return Inertia::location($this->redirectPath());
+    }
+
+    protected function redirectPath()
+    {
+        return view('welcome');
     }
 }

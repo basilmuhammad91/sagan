@@ -91,8 +91,8 @@
 import { useForm, Link } from '@inertiajs/vue3'
 
 const form = useForm({
-  email: '',
-  password: '',
+  email: 'basilmuhammad91@gmail.com',
+  password: '111111111',
   remember: false
 })
 
