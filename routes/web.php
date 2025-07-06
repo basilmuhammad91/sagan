@@ -9,9 +9,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', ["is_logged_in" => Auth::check()]);
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Remove Auth::routes(); and replace with:
 
@@ -35,4 +33,4 @@ Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkE
 Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
