@@ -89,7 +89,6 @@
 
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3'
-import route from 'ziggy-js'
 
 const form = useForm({
   email: '',

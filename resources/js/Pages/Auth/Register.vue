@@ -81,12 +81,12 @@
         </div>
 
         <div class="text-center">
-          <!-- <Link
+          <Link
             :href="route('login')"
             class="font-medium text-indigo-600 hover:text-indigo-500"
           >
             Already have an account? Sign in
-          </Link> -->
+          </Link>
         </div>
       </form>
     </div>
@@ -95,12 +95,12 @@
 
 <script>
 import { useForm, router } from '@inertiajs/vue3'
-// import { Link } from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3'
 
 export default {
-//   components: {
-//     Link
-//   },
+  components: {
+    Link
+  },
   setup() {
     const form = useForm({
       name: '',
