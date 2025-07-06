@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -26,6 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Home', ["is_logged_in" => Auth::check()]);
+    }
+
+    public function about()
+    {
+        return Inertia::render('About');
     }
 
 }

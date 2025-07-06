@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #4f46e5;
+  --color-primary: #268f34; /* red-500 */
   --color-secondary: #10b981;
   --color-background: #f9fafb;
   --color-text: #111827;
@@ -8,7 +8,10 @@
 [data-theme="dark"] {
   --color-background: #1f2937;
   --color-text: #f9fafb;
+  --color-primary: #f87171; /* red-400 in dark mode */
 }
+
+
 
 .basil-heading {
   font-size: 20px;

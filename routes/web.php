@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use Inertia\Inertia;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
 // Remove Auth::routes(); and replace with:
 
