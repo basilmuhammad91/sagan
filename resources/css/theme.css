@@ -1,6 +1,6 @@
 :root {
-  --color-primary: #268f34; /* red-500 */
-  --color-secondary: #10b981;
+  --color-primary: #E8798B; /* red-500 */
+  --color-secondary: #FCA5A5; /* red-300 */
   --color-background: #f9fafb;
   --color-text: #111827;
 }
@@ -8,7 +8,7 @@
 [data-theme="dark"] {
   --color-background: #1f2937;
   --color-text: #f9fafb;
-  --color-primary: #f87171; /* red-400 in dark mode */
+  --color-primary: #E8798B; /* red-400 in dark mode */
 }
 
 

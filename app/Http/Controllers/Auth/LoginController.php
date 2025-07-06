@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/dashboard'; // or wherever you want to redirect
+    protected $redirectTo = '/dashboard';
 
     public function showLoginForm()
     {
@@ -21,7 +21,6 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        // For Inertia, we need to return a proper Inertia response
         if ($request->wantsJson()) {
             return response()->json(['redirect' => '/']);
         }
@@ -39,7 +38,6 @@ class LoginController extends Controller
             return $response;
         }
 
-        // For Inertia requests, return a location response
         return Inertia::location($this->redirectPath());
     }
 

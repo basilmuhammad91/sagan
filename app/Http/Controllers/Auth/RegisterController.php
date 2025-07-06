@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
@@ -13,7 +14,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/';
 
     public function showRegistrationForm()
     {
@@ -36,5 +37,19 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        if ($request->wantsJson()) {
+            return response()->json(['redirect' => '/']);
+        }
+
+        return Inertia::location('/');
+    }
+
+    protected function redirectPath()
+    {
+        return '/';
     }
 }
