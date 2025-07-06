@@ -10,7 +10,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
+    return Inertia::render('Welcome', ["is_logged_in" => Auth::check()]);
 });
 
 // Remove Auth::routes(); and replace with:

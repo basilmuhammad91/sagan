@@ -9,3 +9,8 @@
   --color-background: #1f2937;
   --color-text: #f9fafb;
 }
+
+.basil-heading {
+  font-size: 20px;
+  font-weight: bold;
+}
