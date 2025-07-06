@@ -88,8 +88,20 @@
 </template>
 
 <script setup>
-import { useForm, Link } from '@inertiajs/vue3'
-import route from 'ziggy-js'
+import { useForm } from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3'
+
+// Simple route helper
+const route = (name) => {
+  const routes = {
+    'login': '/login',
+    'register': '/register',
+    'password.request': '/password/reset',
+    'password.reset': '/password/reset',
+    'dashboard': '/dashboard'
+  }
+  return routes[name] || '/'
+}
 
 const form = useForm({
   email: '',
@@ -98,7 +110,6 @@ const form = useForm({
 })
 
 const submit = () => {
-  form.post(route('login'))
+  this.$inertia.post(route('login'))
 }
 </script>
-
