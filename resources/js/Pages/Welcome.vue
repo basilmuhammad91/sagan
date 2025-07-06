@@ -1,28 +1,26 @@
 <template>
-    <div class="min-h-screen bg-gray-100">
-        <!-- Your welcome page content -->
-        <div class="flex items-center justify-center min-h-screen">
-            <div class="text-center">
-                <h1 class="mb-8 text-4xl font-bold">Welcome to Laravel</h1>
+    <div class="flex items-center justify-center min-h-screen text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-white">
+        <div class="space-y-6 text-center">
+            <h1 class="text-4xl font-bold">Welcome to Laravel</h1>
 
-                <!-- Use Inertia Link instead of regular anchor -->
-                <Link
-                    :href="route('login')"
-                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                >
-                    Log in
-                </Link>
-            </div>
+            <Link
+                :href="route('login')"
+                class="inline-block rounded-md bg-white px-5 py-2 text-gray-800 ring-1 ring-gray-300 transition hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF2D20] dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:hover:bg-gray-700"
+            >
+                Log in
+            </Link>
         </div>
     </div>
 </template>
 
 <script>
 import { Link } from '@inertiajs/vue3'
+import AppLayout from '@/Layouts/AppLayout.vue'
 
 export default {
-    components: {
-        Link
-    }
+  components: {
+    Link
+  },
+  layout: AppLayout
 }
 </script>
