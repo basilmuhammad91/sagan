@@ -106,7 +106,7 @@ export default {
   data() {
     return {
       form: useForm({
-        email: '',
+        email: 'basilmuhammad91@gmail.com',
         password: '',
         remember: false
       })

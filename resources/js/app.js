@@ -9,7 +9,7 @@ const primaryColor = getComputedStyle(document.documentElement).getPropertyValue
 
 createInertiaApp({
     progress: {
-        delay: 250,
+        delay: 0,
         color: primaryColor,
         includeCSS: true,
         showSpinner: false,
