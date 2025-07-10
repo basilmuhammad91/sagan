@@ -28,24 +28,43 @@
           <span>#Saganonline</span>
         </div>
       </div>
+    </main>
 
-      <!-- Image Gallery -->
-      <div class="grid grid-cols-1 gap-4 mb-16 sm:grid-cols-2 lg:grid-cols-4">
-        <div
-          v-for="(image, index) in images"
-          :key="index"
-          class="relative overflow-hidden transition-all duration-300 shadow-lg rounded-xl hover:shadow-2xl group"
-          :class="getImageClass(index)"
-        >
+    <!-- Auto-scrolling Image Slider -->
+    <div class="w-full overflow-hidden slider-container">
+      <div class="flex image-slider" style="width: 200%;">
+        <!-- First set of images -->
+        <div class="flex" style="width: 50%;">
           <img
+            v-for="(image, index) in images"
+            :key="`first-${index}`"
             :src="image.src"
             :alt="image.alt"
-            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-          />
-          <div class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/20 to-transparent group-hover:opacity-100"></div>
+            class="object-cover w-1/5 h-64"
+          >
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="flex" style="width: 50%;">
+          <img
+            v-for="(image, index) in images"
+            :key="`second-${index}`"
+            :src="image.src"
+            :alt="image.alt"
+            class="object-cover w-1/5 h-64"
+          >
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="flex" style="width: 50%;">
+          <img
+            v-for="(image, index) in images"
+            :key="`second-${index}`"
+            :src="image.src"
+            :alt="image.alt"
+            class="object-cover w-1/5 h-64"
+          >
         </div>
       </div>
-    </main>
+    </div>
 
     <!-- Footer Section -->
     <footer class="py-12 border-t bg-white/70 backdrop-blur-sm border-pink-200/50">
@@ -120,47 +139,42 @@ export default {
       ],
       images: [
         {
-          src: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500&h=600&fit=crop',
+          src: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&h=300&fit=crop',
           alt: 'Traditional celebration with colorful decorations and festive atmosphere'
         },
         {
-          src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=500&h=600&fit=crop',
+          src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=300&fit=crop',
           alt: 'Happy family celebrating with birthday cake and joyful moments'
         },
         {
-          src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=500&h=600&fit=crop',
+          src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=300&fit=crop',
           alt: 'Couple gift exchange moment with wrapped presents'
         },
         {
-          src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&h=600&fit=crop',
+          src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
           alt: 'Wedding ceremony celebration with elegant decorations'
         },
         {
-          src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&h=600&fit=crop',
-          alt: 'Wedding ceremony celebration with elegant decorations'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&h=600&fit=crop',
-          alt: 'Wedding ceremony celebration with elegant decorations'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&h=600&fit=crop',
-          alt: 'Wedding ceremony celebration with elegant decorations'
+          src: 'https://images.unsplash.com/photo-1549451543-5d5f3ee3baf1?w=400&h=300&fit=crop',
+          alt: 'Festival celebration with vibrant colors and happy people'
         }
       ]
-    }
-  },
-  methods: {
-    getImageClass(index) {
-      // Add varied heights to create a more dynamic gallery layout
-      const classes = [
-        'h-80 sm:h-96', // First image - taller
-        'h-72 sm:h-80', // Second image - medium
-        'h-76 sm:h-88', // Third image - medium-tall
-        'h-72 sm:h-84'  // Fourth image - medium
-      ]
-      return classes[index] || 'h-72'
     }
   }
 }
 </script>
+
+<style scoped>
+.image-slider {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.slider-container:hover .image-slider {
+  animation-play-state: paused;
+}
+</style>
