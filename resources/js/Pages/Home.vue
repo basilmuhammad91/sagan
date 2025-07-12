@@ -1,6 +1,6 @@
 <template>
-    <div class="flex items-center justify-center min-h-screen text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-white">
-        <div class="space-y-6 text-center">
+    <div>
+        <!-- <div class="space-y-6 text-center">
             <h1 class="text-4xl font-bold">Welcome to Laravel</h1>
 
             <Link
@@ -9,17 +9,25 @@
             >
                 Log in
             </Link>
-        </div>
+        </div> -->
+
+        <HomeTraditionHighlight />
+        <HomeHowItWorks />
+
     </div>
 </template>
 
 <script>
 import { Link } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue'
+import HomeTraditionHighlight from '@/Components/home/HomeTraditionHighlight.vue'
+import HomeHowItWorks from '@/Components/home/HomeHowItWorks.vue'
 
 export default {
   components: {
-    Link
+    Link,
+    HomeTraditionHighlight,
+    HomeHowItWorks
   },
   layout: AppLayout
 }
