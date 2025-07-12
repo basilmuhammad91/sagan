@@ -13,6 +13,7 @@
 
         <HomeTraditionHighlight />
         <HomeHowItWorks />
+        <EventPromoSection />
 
     </div>
 </template>
@@ -22,12 +23,14 @@ import { Link } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import HomeTraditionHighlight from '@/Components/home/HomeTraditionHighlight.vue'
 import HomeHowItWorks from '@/Components/home/HomeHowItWorks.vue'
+import EventPromoSection from '@/Components/home/EventPromoSection.vue'
 
 export default {
   components: {
     Link,
     HomeTraditionHighlight,
-    HomeHowItWorks
+    HomeHowItWorks,
+    EventPromoSection
   },
   layout: AppLayout
 }
