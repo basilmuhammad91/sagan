@@ -14,6 +14,7 @@
         <HomeTraditionHighlight />
         <HomeHowItWorks />
         <EventPromoSection />
+        <LaptopMockup />
 
     </div>
 </template>
@@ -24,13 +25,15 @@ import AppLayout from '@/Layouts/AppLayout.vue'
 import HomeTraditionHighlight from '@/Components/home/HomeTraditionHighlight.vue'
 import HomeHowItWorks from '@/Components/home/HomeHowItWorks.vue'
 import EventPromoSection from '@/Components/home/EventPromoSection.vue'
+import LaptopMockup from '@/Components/home/LaptopMockup.vue'
 
 export default {
   components: {
     Link,
     HomeTraditionHighlight,
     HomeHowItWorks,
-    EventPromoSection
+    EventPromoSection,
+    LaptopMockup
   },
   layout: AppLayout
 }
