@@ -16,14 +16,25 @@
 
       <div class="flex items-center space-x-4">
         <template v-if="!user">
-          <Link href="/login" class="font-medium text-gray-700 transition-colors duration-200 hover:text-pink-600">Login</Link>
-          <Link href="/register" class="flex items-center px-4 py-2 space-x-1 font-medium text-white transition-colors duration-200 bg-pink-600 rounded-md hover:bg-pink-700">
-            <span>Start</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </Link>
+            <!-- Login Button -->
+            <Link
+                href="/login"
+                class="px-4 py-1.5 rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white"
+            >
+                Login
+            </Link>
+
+            <!-- Start Button -->
+            <Link
+                href="/register"
+                class="flex items-center space-x-2 px-4 py-1.5 rounded-full font-medium bg-[#272727] text-white transition-colors hover:bg-[#1f1f1f]"
+            >
+                <span>Start</span>
+                <ArrowUpRight class="w-4 h-4" />
+            </Link>
         </template>
+
+
         <template v-else>
           <div class="relative">
             <button @click="toggleUserDropdown" class="flex items-center px-3 py-2 space-x-2 font-medium text-gray-700 transition-colors duration-200 rounded-md hover:text-pink-600 hover:bg-pink-50">
@@ -59,11 +70,13 @@
 
 <script>
 import { Link } from '@inertiajs/vue3'
+import { ArrowUpRight } from 'lucide-vue-next'
 
 export default {
   name: 'MainHeader',
   components: {
-    Link
+    Link,
+    ArrowUpRight
   },
   computed: {
     user() {
