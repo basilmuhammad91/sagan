@@ -17,3 +17,7 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.navigation-font-family {
+  font-family: AktivGrotesk-Bold, sans-serif !important;
+}

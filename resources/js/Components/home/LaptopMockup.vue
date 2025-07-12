@@ -1,25 +1,19 @@
 <template>
   <div class="flex items-center justify-center py-20 bg-gray-100">
-    <!-- Laptop Container with proper spacing -->
-    <div class="relative">
+    <div class="relative scale-90 md:scale-100">
       <!-- Laptop Screen -->
-      <div class="p-6 bg-gray-900 shadow-2xl rounded-t-3xl">
-        <!-- Screen Frame -->
-        <div class="p-3 bg-black rounded-2xl">
-          <!-- Screen Content -->
-          <div class="overflow-hidden bg-white rounded-xl"
-               style="width: 900px; height: 550px;">
-
+      <div class="p-4 bg-gray-900 shadow-2xl rounded-t-2xl">
+        <div class="p-2 bg-black rounded-xl">
+          <div
+            class="overflow-hidden bg-white rounded-lg w-[700px] h-[400px]"
+          >
             <!-- Browser Top Bar -->
             <div class="flex items-center px-4 py-2 space-x-3 border-b border-gray-200 bg-gray-50">
-              <!-- Traffic Light Buttons -->
               <div class="flex space-x-2">
                 <div class="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-
-              <!-- Address Bar -->
               <div class="flex-1 ml-6">
                 <div class="bg-white rounded-lg px-4 py-1.5 text-sm text-gray-600 border shadow-sm">
                   {{ currentUrl }}
@@ -29,48 +23,36 @@
 
             <!-- Website Content -->
             <div class="bg-white">
-              <!-- Top Navigation -->
-              <nav class="px-8 py-4 border-b border-gray-100">
+              <nav class="px-6 py-3 border-b border-gray-100">
                 <div class="flex items-center justify-between">
-                  <!-- Logo Section -->
                   <div class="flex items-center space-x-3">
-                    <div class="flex items-center justify-center w-10 h-10 bg-pink-500 rounded-full">
+                    <div class="flex items-center justify-center bg-pink-500 rounded-full w-9 h-9">
                       <span class="text-lg font-bold text-white">S</span>
                     </div>
-                    <span class="text-xl font-bold text-gray-800">SAGAN</span>
+                    <span class="text-lg font-bold text-gray-800">SAGAN</span>
                   </div>
-
-                  <!-- Navigation Links -->
-                  <div class="flex space-x-8">
-                    <a href="#" class="font-medium text-gray-700 hover:text-gray-900">Home</a>
-                    <a href="#" class="font-medium text-gray-700 hover:text-gray-900">About Us</a>
-                    <a href="#" class="font-medium text-gray-700 hover:text-gray-900">Pics</a>
-                    <a href="#" class="font-medium text-gray-700 hover:text-gray-900">Login</a>
+                  <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-gray-900">About Us</a>
+                    <a href="#" class="text-gray-700 hover:text-gray-900">Pics</a>
+                    <a href="#" class="text-gray-700 hover:text-gray-900">Login</a>
                   </div>
-
-                  <!-- Get Started Button -->
-                  <button class="bg-black text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                  <button class="px-5 py-2 text-sm text-white bg-black rounded-full hover:bg-gray-800">
                     Get Started
                   </button>
                 </div>
               </nav>
 
-              <!-- Main Content Area -->
-              <div class="px-8 py-12">
-                <!-- Main Title -->
-                <h1 class="mb-12 text-5xl font-bold text-center text-gray-900">
-                  SAGANONLINE
-                </h1>
-
-                <!-- Category Navigation -->
-                <div class="flex justify-center mb-12 space-x-8">
+              <div class="px-6 py-8">
+                <h1 class="mb-8 text-4xl font-bold text-center text-gray-900">SAGANONLINE</h1>
+                <div class="flex justify-center mb-8 space-x-4 text-sm">
                   <button
                     v-for="category in categories"
                     :key="category"
                     :class="[
-                      'px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200',
+                      'px-4 py-2 rounded-full font-medium transition',
                       activeCategory === category
-                        ? 'bg-pink-500 text-white shadow-lg'
+                        ? 'bg-pink-500 text-white shadow'
                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     ]"
                     @click="activeCategory = category"
@@ -79,18 +61,17 @@
                   </button>
                 </div>
 
-                <!-- Image Gallery Grid -->
-                <div class="grid max-w-5xl grid-cols-3 gap-8 mx-auto">
+                <div class="grid max-w-4xl grid-cols-3 gap-4 mx-auto">
                   <div
                     v-for="(image, index) in images"
                     :key="index"
-                    class="overflow-hidden transition-all duration-300 shadow-lg cursor-pointer aspect-square rounded-2xl hover:shadow-xl group"
+                    class="overflow-hidden shadow rounded-xl group"
                   >
                     <img
                       :src="image.src"
                       :alt="image.alt"
                       class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                    >
+                    />
                   </div>
                 </div>
               </div>
@@ -99,19 +80,17 @@
         </div>
       </div>
 
-      <!-- Laptop Base/Keyboard Area -->
-      <div class="bg-gray-300 shadow-2xl rounded-b-3xl" style="height: 40px;">
-        <!-- Keyboard Surface -->
-        <div class="mx-4 bg-gray-400 shadow-inner rounded-b-3xl" style="height: 32px; margin-top: 4px;">
-          <!-- Trackpad -->
-          <div class="flex justify-center pt-2">
-            <div class="w-20 h-3 bg-gray-500 rounded-lg opacity-60"></div>
+      <!-- Laptop Base -->
+      <div class="bg-gray-300 shadow-2xl rounded-b-2xl w-[700px] h-[30px]">
+        <div class="mx-4 bg-gray-400 shadow-inner rounded-b-2xl h-[24px] mt-1">
+          <div class="flex justify-center pt-1.5">
+            <div class="w-16 h-2.5 bg-gray-500 rounded-lg opacity-60"></div>
           </div>
         </div>
       </div>
 
-      <!-- Laptop Stand/Base Shadow -->
-      <div class="absolute w-40 h-6 transform -translate-x-1/2 bg-gray-400 rounded-full -bottom-4 left-1/2 opacity-20 blur-lg"></div>
+      <!-- Laptop Shadow -->
+      <div class="absolute h-5 transform -translate-x-1/2 bg-gray-400 rounded-full w-36 -bottom-4 left-1/2 opacity-20 blur-md"></div>
     </div>
   </div>
 </template>
@@ -128,14 +107,7 @@ export default {
   data() {
     return {
       activeCategory: 'Wedding Fund',
-      categories: [
-        'Wedding Fund',
-        'Shagun',
-        'Eidiya',
-        'Hongbao',
-        'Salami',
-        'Gift'
-      ],
+      categories: ['Wedding Fund', 'Shagun', 'Eidiya', 'Hongbao', 'Salami', 'Gift'],
       images: [
         {
           src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=400&fit=crop&crop=faces',
@@ -150,14 +122,9 @@ export default {
           alt: 'Wedding Photography'
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
-<style scoped>
-/* Additional shadows and effects */
-.laptop-container {
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
-}
-</style>
+<style scoped></style>
