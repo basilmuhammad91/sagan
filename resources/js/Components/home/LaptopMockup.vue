@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center py-20 bg-gray-100">
+  <div class="flex items-center justify-center py-20 bg-secondary">
     <div class="relative scale-90 md:scale-100">
       <!-- Laptop Screen -->
       <div class="p-4 bg-gray-900 shadow-2xl rounded-t-2xl">
