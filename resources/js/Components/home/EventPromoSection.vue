@@ -1,21 +1,32 @@
 <template>
   <section class="px-4 py-16 bg-white">
-    <div class="flex flex-col-reverse items-center gap-10 mx-auto max-w-7xl md:flex-row">
-      <!-- Video or Image Mockup -->
-      <div class="flex justify-center w-full md:w-1/2">
-        <div class="p-6 bg-pink-300 rounded-xl">
-          <div class="relative">
-            <img
-              src="/assets/images/event-promotion.png"
-              alt="Laptop Preview"
-              class="max-w-full"
-            />
+    <div class="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
+      <!-- Video Section -->
+      <div class="flex justify-center w-full lg:w-1/2">
+        <div class="p-8 shadow-lg bg-primary rounded-3xl">
+          <div class="relative overflow-hidden bg-black shadow-2xl rounded-2xl">
+            <!-- Video Element -->
+            <video
+              ref="videoPlayer"
+              class="w-full h-auto max-w-lg"
+              :poster="videoPoster"
+              preload="metadata"
+              @loadedmetadata="onVideoLoaded"
+            >
+              <source :src="videoSrc" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
             <!-- Play Button Overlay -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <button class="p-3 transition bg-white rounded-full shadow-lg hover:scale-105">
+            <div
+              v-if="!isPlaying"
+              class="absolute inset-0 flex items-center justify-center bg-black cursor-pointer bg-opacity-20"
+              @click="togglePlay"
+            >
+              <button class="p-4 transition-all duration-300 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6 text-pink-500"
+                  class="w-8 h-8 ml-1 text-primary"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -23,49 +34,81 @@
                 </svg>
               </button>
             </div>
+
+            <!-- Video Controls (when playing) -->
+            <div
+              v-if="isPlaying"
+              class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent"
+            >
+              <div class="flex items-center gap-4">
+                <button @click="togglePlay" class="text-white transition-colors hover:text-primary">
+                  <svg v-if="isPlaying" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                  </svg>
+                  <svg v-else class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+                <div class="flex-1 h-2 bg-gray-600 rounded-full">
+                  <div
+                    class="h-2 transition-all duration-300 rounded-full bg-primary"
+                    :style="{ width: `${progress}%` }"
+                  ></div>
+                </div>
+                <span class="text-sm text-white">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Text Content -->
-      <div class="w-full md:w-1/2">
-        <ul class="mb-6 space-y-4">
-          <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 mt-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-            <span class="text-sm text-gray-800 sm:text-base">
-              A modern way to celebrate life’s milestones
+      <div class="w-full text-center lg:w-1/2 lg:text-left">
+        <ul class="mb-8 space-y-4">
+          <li class="flex items-start justify-center gap-3 lg:justify-start">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-lg leading-relaxed text-gray-700">
+              A modern way to celebrate life's milestones
             </span>
           </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 mt-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-            <span class="text-sm text-gray-800 sm:text-base">
+          <li class="flex items-start justify-center gap-3 lg:justify-start">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-lg leading-relaxed text-gray-700">
               Culturally meaningful and inclusive
             </span>
           </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 mt-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-            <span class="text-sm text-gray-800 sm:text-base">
+          <li class="flex items-start justify-center gap-3 lg:justify-start">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-lg leading-relaxed text-gray-700">
               Safe, fast, and simple
             </span>
           </li>
         </ul>
 
-        <h3 class="mb-4 text-2xl font-bold text-pink-600 sm:text-3xl">
-          START YOUR EVENT TODAY!
+        <h3 class="mb-8 text-4xl font-bold leading-tight text-primary lg:text-5xl">
+          START YOUR<br/>
+          EVENT TODAY!
         </h3>
 
         <button
-          class="inline-flex items-center px-5 py-2 font-medium text-white transition bg-black rounded-full hover:bg-gray-800"
+          class="inline-flex items-center px-8 py-4 font-semibold text-white transition-all duration-300 bg-gray-900 rounded-full shadow-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl"
+          @click="handleShareClick"
         >
           Share
           <svg
-            class="w-4 h-4 ml-2"
+            class="w-5 h-5 ml-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -86,8 +129,85 @@
 <script>
 export default {
   name: 'EventPromoSection',
+  data() {
+    return {
+      isPlaying: false,
+      currentTime: 0,
+      duration: 0,
+      progress: 0,
+      videoSrc: '/assets/videos/event-promo.mp4', // Update with your video path
+      videoPoster: '/assets/images/event-promotion.png', // Update with your poster image
+    };
+  },
+  mounted() {
+    if (this.$refs.videoPlayer) {
+      this.$refs.videoPlayer.addEventListener('timeupdate', this.updateProgress);
+      this.$refs.videoPlayer.addEventListener('ended', this.onVideoEnded);
+    }
+  },
+  beforeUnmount() {
+    if (this.$refs.videoPlayer) {
+      this.$refs.videoPlayer.removeEventListener('timeupdate', this.updateProgress);
+      this.$refs.videoPlayer.removeEventListener('ended', this.onVideoEnded);
+    }
+  },
+  methods: {
+    togglePlay() {
+      const video = this.$refs.videoPlayer;
+      if (video.paused) {
+        video.play();
+        this.isPlaying = true;
+      } else {
+        video.pause();
+        this.isPlaying = false;
+      }
+    },
+    updateProgress() {
+      const video = this.$refs.videoPlayer;
+      this.currentTime = video.currentTime;
+      this.progress = (video.currentTime / video.duration) * 100;
+    },
+    onVideoLoaded() {
+      this.duration = this.$refs.videoPlayer.duration;
+    },
+    onVideoEnded() {
+      this.isPlaying = false;
+      this.progress = 0;
+      this.currentTime = 0;
+    },
+    formatTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60);
+      return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    },
+    handleShareClick() {
+      // Add your share functionality here
+      console.log('Share button clicked');
+    }
+  },
 };
 </script>
 
 <style scoped>
+/* Custom styles for primary and secondary colors */
+.bg-primary {
+  background-color: var(--primary-color, #ec4899); /* Pink/Rose color */
+}
+
+.text-primary {
+  color: var(--primary-color, #ec4899);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color, #f3f4f6); /* Light gray */
+}
+
+.text-secondary {
+  color: var(--secondary-color, #6b7280);
+}
+
+/* Custom shadow for better depth */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
 </style>
