@@ -3,8 +3,10 @@
     <div class="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
       <!-- Video Section -->
       <div class="flex justify-center w-full lg:w-1/2">
-        <div class="p-8 shadow-lg bg-primary rounded-3xl">
-          <div class="relative overflow-hidden bg-black shadow-2xl rounded-2xl">
+        <div class="p-10 shadow-lg bg-primary rounded-3xl">
+
+          <div class="relative w-[90%] max-w-md h-auto m-auto mt-6 mb-6 overflow-hidden bg-black shadow-xl rounded-xl">
+
             <!-- Video Element -->
             <video
               ref="videoPlayer"
@@ -135,8 +137,8 @@ export default {
       currentTime: 0,
       duration: 0,
       progress: 0,
-      videoSrc: '/assets/videos/event-promo.mp4', // Update with your video path
-      videoPoster: '/assets/images/event-promotion.png', // Update with your poster image
+      videoSrc: '/assets/videos/event-promo.mp4',
+      videoPoster: '/assets/images/event-promotion.png',
     };
   },
   mounted() {
@@ -189,17 +191,9 @@ export default {
 </script>
 
 <style scoped>
-/* Custom styles for primary and secondary colors */
-.bg-primary {
-  background-color: var(--primary-color, #ec4899); /* Pink/Rose color */
-}
 
 .text-primary {
   color: var(--primary-color, #ec4899);
-}
-
-.bg-secondary {
-  background-color: var(--secondary-color, #f3f4f6); /* Light gray */
 }
 
 .text-secondary {

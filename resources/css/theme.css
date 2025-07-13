@@ -11,7 +11,9 @@
   --color-primary: #E8798B; /* red-400 in dark mode */
 }
 
-
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
 
 .basil-heading {
   font-size: 20px;
