@@ -15,6 +15,10 @@
   background-color: var(--color-secondary);
 }
 
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
 .basil-heading {
   font-size: 20px;
   font-weight: bold;
@@ -29,6 +33,10 @@
     font-family: 'Space Grotesk', sans-serif;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+.font-grotesk {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .home-tradition-para {
