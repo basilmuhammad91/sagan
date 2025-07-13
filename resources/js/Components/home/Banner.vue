@@ -1,9 +1,9 @@
 <template>
-  <div class="w-full bg-[#feb5c0] min-h-[500px] relative overflow-hidden">
-    <div class="flex items-stretch gap-12 px-5 py-16 mx-auto max-w-7xl">
+  <div class="w-full bg-[#feb5c0] relative overflow-hidden">
+    <div class="flex items-stretch gap-0 mx-auto">
 
       <!-- Left Side - Text Content -->
-      <div class="z-10 flex flex-col justify-center flex-1">
+      <div class="w-[45%] pl-20 z-10 flex flex-col justify-center flex-1 px-5 py-16">
         <h1 class="mb-5 text-4xl text-[#272727] font-bold leading-tight tracking-tight uppercase lg:text-5xl">
           SEND & RECEIVE CASH<br />
           FOR LIFE'S BIG MOMENT
@@ -28,7 +28,7 @@
           <img
             src="/assets/images/banner2.jpg"
             alt="Wedding ceremony with flower petals"
-            class="object-cover w-full h-full rounded-lg"
+            class="object-cover w-full h-full"
           />
         </div>
       </div>
@@ -61,7 +61,7 @@ export default {
   .flex {
     flex-direction: column;
     text-align: center;
-    gap: 2.5rem;
+    gap: 0;
   }
 
   .text-4xl {
