@@ -90,12 +90,12 @@
                     EVENT TODAY!
                 </h3>
 
-              <Link
-  class="inline-flex items-center gap-1.5 px-5 py-2 text-sm rounded-full font-medium bg-[#272727] text-white transition-colors hover:bg-[#1f1f1f]"
->
-  <span>Start</span>
-  <ArrowUpRight class="w-4 h-4" />
-</Link>
+                <Link
+                    class="inline-flex items-center gap-1.5 px-5 py-2 text-sm rounded-full font-medium bg-[#272727] text-white transition-colors hover:bg-[#1f1f1f]"
+                    >
+                    <span>Share</span>
+                    <ArrowUpRight class="w-4 h-4" />
+                </Link>
 
             </div>
         </div>
