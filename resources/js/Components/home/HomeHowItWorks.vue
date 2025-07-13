@@ -79,15 +79,8 @@
       <div class="relative w-full max-w-4xl px-8">
         <!-- Timeline line -->
         <div class="w-full h-1 rounded-full bg-rose-200"></div>
-
-        <!-- Left diamond -->
-        <div class="absolute left-0 w-3 h-3 transform rotate-45 -translate-y-1/2 rounded-sm bg-rose-400 top-1/2"></div>
-
-        <!-- Center diamond -->
-        <div class="absolute w-3 h-3 transform rotate-45 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-rose-400 left-1/2 top-1/2"></div>
-
-        <!-- Right diamond -->
-        <div class="absolute right-0 w-3 h-3 transform rotate-45 -translate-y-1/2 rounded-sm bg-rose-400 top-1/2"></div>
+        <div class="absolute left-0 w-3 h-3 transform rotate-45 -translate-y-1/2 rounded-sm bg-primary top-1/2"></div>
+        <div class="absolute right-0 w-3 h-3 transform rotate-45 -translate-y-1/2 rounded-sm bg-primary top-1/2"></div>
       </div>
     </div>
   </section>
