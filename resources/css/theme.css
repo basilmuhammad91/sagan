@@ -18,6 +18,18 @@
   font-weight: bold;
 }
 
-.navigation-font-family {
-  font-family: AktivGrotesk-Bold, sans-serif !important;
+.navigation-font {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600 !important;
+}
+
+.home-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.home-tradition-para {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
 }

@@ -6,7 +6,7 @@
         <div class="p-6 bg-pink-300 rounded-xl">
           <div class="relative">
             <img
-              src="https://i.ibb.co/GRn3kKD/laptop-frame.png"
+              src="/assets/images/event-promotion.png"
               alt="Laptop Preview"
               class="max-w-full"
             />

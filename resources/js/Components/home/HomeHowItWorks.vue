@@ -26,7 +26,7 @@
 
     <!-- Title and Subtitle -->
     <div class="mb-12 text-center">
-      <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">HOW IT WORKS</h2>
+      <h2 class="text-2xl font-bold text-gray-900 home-heading sm:text-3xl">HOW IT WORKS</h2>
       <p class="mt-2 text-sm text-gray-700 sm:text-base">
         Follow these 3 simple steps and start receiving cash <br />
         for your life’s big moment
