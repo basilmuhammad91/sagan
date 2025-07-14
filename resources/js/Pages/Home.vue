@@ -6,6 +6,7 @@
         <EventPromoSection />
         <Payment />
         <LaptopMockup />
+        <TrustedSection />
     </div>
 </template>
 
@@ -18,6 +19,7 @@ import EventPromoSection from '@/Components/home/EventPromoSection.vue'
 import LaptopMockup from '@/Components/home/LaptopMockup.vue'
 import Banner from '@/Components/home/Banner.vue'
 import Payment from '@/Components/home/Payment.vue'
+import TrustedSection from '@/Components/home/TrustedSection.vue'
 
 export default {
   components: {
@@ -27,7 +29,8 @@ export default {
     EventPromoSection,
     LaptopMockup,
     Banner,
-    Payment
+    Payment,
+    TrustedSection
   },
   layout: AppLayout
 }
