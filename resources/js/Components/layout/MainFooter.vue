@@ -67,7 +67,7 @@
     </div>
 
     <!-- Footer Section -->
-    <footer class="py-12 border-t bg-white/70 backdrop-blur-sm border-pink-200/50">
+    <footer class="py-12 border-t backdrop-blur-sm bg-footer">
       <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <!-- Logo Section -->
@@ -139,23 +139,27 @@ export default {
       ],
       images: [
         {
-          src: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&h=300&fit=crop',
+          src: '/assets/images/footer/01.webp',
           alt: 'Traditional celebration with colorful decorations and festive atmosphere'
         },
         {
-          src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=300&fit=crop',
+          src: '/assets/images/footer/02.jpeg',
           alt: 'Happy family celebrating with birthday cake and joyful moments'
         },
         {
-          src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=300&fit=crop',
+          src: '/assets/images/footer/03.jpg',
           alt: 'Couple gift exchange moment with wrapped presents'
         },
         {
-          src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
+          src: '/assets/images/footer/04.jpg',
           alt: 'Wedding ceremony celebration with elegant decorations'
         },
         {
-          src: 'https://images.unsplash.com/photo-1549451543-5d5f3ee3baf1?w=400&h=300&fit=crop',
+          src: '/assets/images/footer/05.jpg',
+          alt: 'Festival celebration with vibrant colors and happy people'
+        },
+        {
+          src: '/assets/images/footer/06.jpg',
           alt: 'Festival celebration with vibrant colors and happy people'
         }
       ]

@@ -4,8 +4,8 @@
         <HomeTraditionHighlight />
         <HomeHowItWorks />
         <EventPromoSection />
+        <Payment />
         <LaptopMockup />
-
     </div>
 </template>
 
@@ -17,6 +17,7 @@ import HomeHowItWorks from '@/Components/home/HomeHowItWorks.vue'
 import EventPromoSection from '@/Components/home/EventPromoSection.vue'
 import LaptopMockup from '@/Components/home/LaptopMockup.vue'
 import Banner from '@/Components/home/Banner.vue'
+import Payment from '@/Components/home/Payment.vue'
 
 export default {
   components: {
@@ -25,7 +26,8 @@ export default {
     HomeHowItWorks,
     EventPromoSection,
     LaptopMockup,
-    Banner
+    Banner,
+    Payment
   },
   layout: AppLayout
 }
