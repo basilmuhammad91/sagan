@@ -72,7 +72,7 @@ export default {
                     id: 1,
                     name: 'Jennifer',
                     company: 'Google',
-                    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b9130267?w=400&h=400&fit=crop&crop=face',
+                    avatar: 'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
                     borderColor: 'border border-pink-200'
