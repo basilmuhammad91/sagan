@@ -7,6 +7,7 @@
         <Payment />
         <LaptopMockup />
         <TrustedSection />
+        <FAQSection :showAll="true" />
     </div>
 </template>
 
@@ -20,6 +21,7 @@ import LaptopMockup from '@/Components/home/LaptopMockup.vue'
 import Banner from '@/Components/home/Banner.vue'
 import Payment from '@/Components/home/Payment.vue'
 import TrustedSection from '@/Components/home/TrustedSection.vue'
+import FAQSection from '@/Components/home/FAQSection.vue'
 
 export default {
   components: {
@@ -30,7 +32,8 @@ export default {
     LaptopMockup,
     Banner,
     Payment,
-    TrustedSection
+    TrustedSection,
+    FAQSection
   },
   layout: AppLayout
 }

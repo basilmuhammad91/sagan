@@ -12,8 +12,8 @@
         <div class="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-6" />
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-6" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo_%282018%29.svg" alt="Amex" class="h-6" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Pay_Logo.svg" alt="Google Pay" class="h-6" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp22yHLLHwZJMt51sDJGVxyU8cch4Ce0smGg&s" alt="Amex" class="h-6" />
+          <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GooglePay_Lockup.width-1300.png" alt="Google Pay" class="h-10" />
           <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay" class="h-6" />
         </div>
       </div>

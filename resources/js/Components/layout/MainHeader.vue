@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <Link href="/" class="flex items-center space-x-2">
-                    <img src="/assets/images/logo.jpg" alt="Sagan Logo" class="w-40">
+                    <img src="/assets/images/logo.png" alt="Sagan Logo" class="w-40">
                     </Link>
                 </div>
 

@@ -33,4 +33,9 @@ class HomeController extends Controller
         return Inertia::render('About');
     }
 
+    public function faq()
+    {
+        return Inertia::render('FAQPage');
+    }
+
 }

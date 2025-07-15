@@ -72,15 +72,7 @@
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           <!-- Logo Section -->
           <div class="flex flex-col items-center md:col-span-1 md:items-start">
-            <div class="flex items-center mb-6">
-              <div class="flex items-center justify-center w-10 h-10 mr-3 transform bg-pink-500 rounded-full rotate-12">
-                <span class="text-lg font-bold text-white">★</span>
-              </div>
-              <div class="text-left">
-                <span class="block text-2xl font-bold tracking-wide text-gray-800">SAGAN</span>
-                <span class="block text-xs font-medium tracking-widest text-gray-500">ONLINE</span>
-              </div>
-            </div>
+           <img src="/assets/images/logo.png" alt="Sagan Logo" class="w-40">
           </div>
 
           <!-- Navigation Columns -->

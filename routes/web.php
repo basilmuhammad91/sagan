@@ -11,6 +11,7 @@ use Inertia\Inertia;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
 
 // Remove Auth::routes(); and replace with:
 
