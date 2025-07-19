@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center py-20 bg-gray-100">
+    <div class="flex items-center justify-center py-5 bg-gray-100">
         <div class="relative">
             <!-- Laptop Frame Image -->
             <img :src="laptopFrameImage" alt="Laptop Frame" class="w-auto h-auto max-w-full" />
@@ -11,12 +11,12 @@
                     <MainHeader />
 
                     <div class="h-full px-6 py-8 overflow-y-auto">
-                        <h1 class="mb-8 text-4xl font-bold text-center text-gray-900">SAGANONLINE</h1>
+                        <h1 class="mb-8 text-4xl font-bold text-center text-gray-900 font-space-grotesk">SAGANONLINE</h1>
                         <hr class="mb-8 border-gray-300" />
                         <div class="flex justify-center mb-8 space-x-6 text-sm font-medium">
                             <button v-for="category in categories" :key="category" @click="activeCategory = category"
                                 :class="[
-                                    'px-2 pb-1 border-b-2 transition-colors duration-200',
+                                    'font-space-grotesk px-2 pb-1 border-b-2 transition-colors duration-200',
                                     activeCategory === category
                                         ? 'text-pink-500 border-pink-500'
                                         : 'text-gray-600 border-transparent hover:text-gray-800'
