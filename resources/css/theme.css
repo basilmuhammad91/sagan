@@ -18,6 +18,10 @@
   font-style: normal;
 }
 
+.border-primary {
+  border-color: var(--color-primary) !important;
+}
+
 .bg-secondary {
   background-color: var(--color-secondary);
 }

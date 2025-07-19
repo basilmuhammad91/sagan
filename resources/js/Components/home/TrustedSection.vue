@@ -13,7 +13,7 @@
                         :style="{ transform: `translateX(${translateX}px)` }">
                         <div v-for="(testimonial, index) in testimonials" :key="testimonial.id"
                             class="flex-shrink-0 px-3" :style="{ width: `${cardWidth}px` }">
-                            <div class="p-6 bg-white border border-pink-200 rounded-lg shadow-sm sm:shadow-xl h-80">
+                            <div class="p-6 bg-white border rounded-lg shadow-sm border-primary sm:shadow-xl h-80">
                                 <div class="flex items-center mb-4">
                                     <div v-if="testimonial.avatar" class="w-12 h-12 overflow-hidden rounded-full">
                                         <img :src="testimonial.avatar" :alt="testimonial.name"
@@ -79,7 +79,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 2,
@@ -88,7 +87,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 3,
@@ -97,7 +95,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 4,
@@ -106,7 +103,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 5,
@@ -115,7 +111,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 6,
@@ -124,7 +119,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 7,
@@ -133,7 +127,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 },
                 {
                     id: 8,
@@ -142,7 +135,6 @@ export default {
                     avatar: 'https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?w=400&h=400&fit=crop&crop=face',
                     rating: 5,
                     text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    borderColor: 'border border-pink-200'
                 }
             ],
         }
