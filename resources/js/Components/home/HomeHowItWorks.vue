@@ -31,13 +31,15 @@
         <div class="grid max-w-4xl gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
             <template v-if="mode === 'host'">
                 <div v-for="(step, i) in hostSteps" :key="'host-' + i"
-                    class="flex flex-col items-center p-8 transition-shadow duration-200 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md">
+                    class="flex flex-col items-center p-8 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group">
                     <div class="flex items-center justify-center w-16 h-16 mb-6">
-                        <component :is="step.icon" class="w-12 h-12 text-gray-800 stroke-2" />
+                        <component :is="step.icon"
+                            class="w-12 h-12 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
                     </div>
-                    <h3 class="text-2xl font-extrabold leading-tight text-center text-gray-900 home-heading sm:text-3xl md:text-xl"
+                    <h3 class="text-2xl font-extrabold leading-tight text-center text-gray-900 transition-colors duration-300 home-heading sm:text-3xl md:text-xl group-hover:text-gray-900"
                         v-html="step.title" />
-                    <p class="text-sm leading-relaxed text-center text-gray-600 font-space-grotesk">
+                    <p
+                        class="text-sm leading-relaxed text-center text-gray-600 transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
                         {{ step.description }}
                     </p>
                 </div>
@@ -45,19 +47,20 @@
 
             <template v-else>
                 <div v-for="(step, i) in guestSteps" :key="'guest-' + i"
-                    class="flex flex-col items-center p-8 transition-shadow duration-200 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md">
+                    class="flex flex-col items-center p-8 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group">
                     <div class="flex items-center justify-center w-16 h-16 mb-6">
-                        <component :is="step.icon" class="w-12 h-12 text-gray-800 stroke-2" />
+                        <component :is="step.icon"
+                            class="w-12 h-12 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
                     </div>
-                    <h3 class="mb-3 text-lg font-bold leading-tight tracking-wide text-center text-gray-900 home-heading"
+                    <h3 class="mb-3 text-lg font-bold leading-tight tracking-wide text-center text-gray-900 transition-colors duration-300 home-heading group-hover:text-gray-900"
                         v-html="step.title" />
-                    <p class="text-sm leading-relaxed text-center text-gray-600">
+                    <p
+                        class="text-sm leading-relaxed text-center text-gray-600 transition-colors duration-300 group-hover:text-gray-700">
                         {{ step.description }}
                     </p>
                 </div>
             </template>
         </div>
-
         <!-- Bottom Timeline with Diamond -->
         <div class="flex justify-center mt-12" v-if="!isMobile">
             <div class="relative w-full max-w-xl px-8">
