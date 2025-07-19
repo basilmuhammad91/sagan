@@ -1,5 +1,5 @@
 <template>
-    <header class="sticky top-0 z-50 border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-sm">
+    <header class="sticky top-0 z-50 py-2 border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-sm">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -24,16 +24,17 @@
                     <template v-if="!user">
                         <!-- Login Button -->
                         <Link href="/login"
-                            class="px-4 py-1.5 rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white">
+                            class="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border">
                         Login
                         </Link>
 
-                        <!-- Start Button -->
+
                         <Link href="/register"
-                            class="flex items-center space-x-2 px-4 py-1.5 rounded-full font-medium bg-[#272727] text-white transition-colors hover:bg-[#1f1f1f]">
+                            class="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
                         <span>Start</span>
                         <ArrowUpRight class="w-4 h-4" />
                         </Link>
+
                     </template>
 
 

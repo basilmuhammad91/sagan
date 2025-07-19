@@ -85,7 +85,7 @@
                     </li>
                 </ul>
 
-                <h3 class="mb-8 text-4xl font-bold leading-tight font-grotesk text-primary lg:text-5xl">
+                <h3 class="mb-8 text-4xl font-bold leading-tight font-space-grotesk text-primary lg:text-5xl">
                     START YOUR<br />
                     EVENT TODAY!
                 </h3>

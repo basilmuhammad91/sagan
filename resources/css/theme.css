@@ -12,10 +12,10 @@
 }
 
 @font-face {
-    font-family: 'Aktiv Grotesk';
-    src: url('/assets/fonts/aktiv-grotesk/AktivGrotesk-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'AktivGrotesk';
+  src: url('/assets/fonts/AktivGrotesk-Regular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 
 .bg-secondary {
@@ -46,8 +46,12 @@
     font-weight: 600;
 }
 
-.font-grotesk {
+.font-space-grotesk {
     font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-grotesk {
+    font-family: 'AktivGrotesk', sans-serif;
 }
 
 .home-tradition-para {
