@@ -24,14 +24,14 @@
                                         {{ getInitials(testimonial.name) }}
                                     </div>
                                     <div class="ml-3">
-                                        <h3 class="font-medium text-gray-900">{{ testimonial.name }}</h3>
-                                        <p class="text-sm text-gray-500">{{ testimonial.company }}</p>
+                                        <h3 class="font-medium text-gray-900 font-space-grotesk">{{ testimonial.name }}</h3>
+                                        <p class="text-sm text-gray-500 font-space-grotesk">{{ testimonial.company }}</p>
                                     </div>
                                 </div>
                                 <div class="flex mb-4">
                                     <span class="text-lg text-yellow-400">★★★★★</span>
                                 </div>
-                                <p class="text-sm leading-relaxed text-gray-600">
+                                <p class="text-sm leading-relaxed text-gray-600 font-space-grotesk">
                                     "{{ testimonial.text }}"
                                 </p>
                             </div>
