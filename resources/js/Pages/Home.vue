@@ -41,20 +41,8 @@ export default {
   layout: AppLayout,
   data() {
     return {
-      isMobile: false
+
     }
   },
-  mounted() {
-    this.checkScreenSize()
-    window.addEventListener('resize', this.checkScreenSize)
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.checkScreenSize)
-  },
-  methods: {
-    checkScreenSize() {
-      this.isMobile = window.innerWidth <= 768
-    }
-  }
 }
 </script>

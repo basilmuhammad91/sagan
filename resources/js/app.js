@@ -4,6 +4,7 @@ import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ZiggyVue } from "ziggy-js";
+import isMobileMixin from "./mixins/isMobile";
 
 const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary')?.trim() || '#ef4444';
 
@@ -23,6 +24,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .mixin(isMobileMixin)
             .mount(el);
     },
 });

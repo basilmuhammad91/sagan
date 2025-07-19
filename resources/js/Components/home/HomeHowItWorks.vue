@@ -59,7 +59,7 @@
         </div>
 
         <!-- Bottom Timeline with Diamond -->
-        <div class="flex justify-center mt-12">
+        <div class="flex justify-center mt-12" v-if="!isMobile">
             <div class="relative w-full max-w-xl px-8">
                 <!-- Timeline line -->
                 <div class="w-full h-1 rounded-full bg-rose-200"></div>

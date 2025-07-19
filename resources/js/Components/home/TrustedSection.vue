@@ -13,7 +13,7 @@
                         :style="{ transform: `translateX(${translateX}px)` }">
                         <div v-for="(testimonial, index) in testimonials" :key="testimonial.id"
                             class="flex-shrink-0 px-3" :style="{ width: `${cardWidth}px` }">
-                            <div class="p-6 bg-white border border-pink-200 rounded-lg shadow-sm h-80">
+                            <div class="p-6 bg-white border border-pink-200 rounded-lg shadow-sm sm:shadow-xl h-80">
                                 <div class="flex items-center mb-4">
                                     <div v-if="testimonial.avatar" class="w-12 h-12 overflow-hidden rounded-full">
                                         <img :src="testimonial.avatar" :alt="testimonial.name"
@@ -24,8 +24,10 @@
                                         {{ getInitials(testimonial.name) }}
                                     </div>
                                     <div class="ml-3">
-                                        <h3 class="font-medium text-gray-900 font-space-grotesk">{{ testimonial.name }}</h3>
-                                        <p class="text-sm text-gray-500 font-space-grotesk">{{ testimonial.company }}</p>
+                                        <h3 class="font-medium text-gray-900 font-space-grotesk">{{ testimonial.name }}
+                                        </h3>
+                                        <p class="text-sm text-gray-500 font-space-grotesk">{{ testimonial.company }}
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="flex mb-4">
@@ -39,12 +41,14 @@
                     </div>
                 </div>
 
-                <div
-                    class="absolute inset-y-0 left-0 z-10 w-32 pointer-events-none bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent">
-                </div>
-                <div
-                    class="absolute inset-y-0 right-0 z-10 w-32 pointer-events-none bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent">
-                </div>
+                <template v-if="!isMobile">
+                    <div
+                        class="absolute inset-y-0 left-0 z-10 w-32 pointer-events-none bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent">
+                    </div>
+                    <div
+                        class="absolute inset-y-0 right-0 z-10 w-32 pointer-events-none bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent">
+                    </div>
+                </template>
             </div>
 
             <div class="flex justify-center mt-8 space-x-2">
