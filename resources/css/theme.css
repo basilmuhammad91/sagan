@@ -11,6 +11,13 @@
   --color-primary: #E8798B; /* red-400 in dark mode */
 }
 
+@font-face {
+    font-family: 'Aktiv Grotesk';
+    src: url('/assets/fonts/aktiv-grotesk/AktivGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .bg-secondary {
   background-color: var(--color-secondary);
 }

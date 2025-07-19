@@ -1,10 +1,10 @@
 <template>
     <div class="w-full bg-[#feb5c0] relative overflow-hidden">
-        <div class="flex flex-col lg:flex-row items-stretch gap-0 mx-auto">
+        <div class="flex flex-col items-stretch gap-0 mx-auto lg:flex-row">
 
             <!-- Right Side - Image Collage (First on mobile, second on desktop) -->
-            <div class="relative w-full lg:flex-1 h-64 sm:h-80 lg:h-auto order-1 lg:order-2">
-                <img src="/assets/images/banner2.jpg" alt="Wedding ceremony with flower petals"
+            <div class="relative order-1 w-full h-64 lg:flex-1 sm:h-80 lg:h-auto lg:order-2">
+                <img src="/assets/images/banner-image.png" alt="Wedding ceremony with flower petals"
                     class="object-cover w-full h-full" />
             </div>
 
