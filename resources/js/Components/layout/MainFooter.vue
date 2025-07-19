@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <footer class="py-12 border-t backdrop-blur-sm bg-footer">
+        <footer class="py-12 border-t px-28 backdrop-blur-sm bg-footer">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
                     <div class="flex flex-col items-center md:col-span-1 md:items-start">
