@@ -2,7 +2,7 @@
   <section class="px-6 py-16 bg-white sm:px-12 lg:px-24">
     <div class="flex flex-col-reverse items-center justify-between gap-12 mx-auto max-w-7xl lg:flex-row">
       <!-- Left Section -->
-      <div class="max-w-xl text-center lg:text-left">
+      <div class="max-w-xl ml-6 text-center lg:text-left">
         <h2 class="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl home-heading">SECURE PAYMENTS</h2>
         <p class="mb-6 text-gray-600 font-space-grotesk">
           We ensure the most stringent level of payment processing across a wide range of providers and we never sell your data.
@@ -19,7 +19,7 @@
       </div>
 
       <!-- Right Section -->
-      <div class="flex justify-center w-full lg:justify-end">
+      <div class="flex justify-center w-full mr-6 lg:justify-end">
         <img
           src="/assets/images/payment.jpg"
           alt="Payment Cards"
