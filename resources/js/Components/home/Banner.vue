@@ -10,7 +10,7 @@
 
             <!-- Left Side - Text Content (Second on mobile, first on desktop) -->
             <div class="w-full lg:w-[45%] px-5 sm:px-8 lg:pl-20 z-10 flex flex-col justify-center py-12 sm:py-16 order-2 lg:order-1">
-                <h1 class="font-space-grotesk mb-5 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] font-bold leading-tight tracking-tight uppercase text-center lg:text-left">
+                <h1 class="home-heading mb-5 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] font-bold leading-tight tracking-tight uppercase text-center lg:text-left">
                     SEND & RECEIVE CASH<br />
                     FOR LIFE'S BIG MOMENT
                 </h1>

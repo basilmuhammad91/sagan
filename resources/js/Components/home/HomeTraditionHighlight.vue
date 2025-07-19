@@ -16,7 +16,7 @@
           Honoring Traditions, <br class="hidden sm:block" />
           Digitally.
         </h2>
-        <p class="text-base leading-relaxed text-gray-700 home-tradition-para sm:text-lg">
+         <p class="text-base leading-relaxed text-gray-700 home-tradition-para sm:text-lg font-space-grotesk">
           With SAGANonline, you can send and receive cash gifts in a way that respects tradition while embracing modern convenience. Whether you call it a wedding fund, group gift, red-envelope, Eidiya, Hongbao, Sagan, or Shagun—we make it effortless to give and receive cash with ease.
         </p>
       </div>
