@@ -60,7 +60,7 @@
                             class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
                             <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
-                        <span class="text-lg leading-relaxed text-gray-700">
+                        <span class="text-lg font-medium leading-relaxed text-gray-700">
                             A modern way to celebrate life's milestones
                         </span>
                     </li>
@@ -69,7 +69,7 @@
                         <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
                             <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
-                        <span class="text-lg leading-relaxed text-gray-700">
+                        <span class="text-lg font-medium leading-relaxed text-gray-700">
                             Culturally meaningful and inclusive
                         </span>
                     </li>
@@ -79,7 +79,7 @@
                             class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
                             <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
-                        <span class="text-lg leading-relaxed text-gray-700">
+                        <span class="text-lg font-medium leading-relaxed text-gray-700">
                             Safe, fast, and simple
                         </span>
                     </li>

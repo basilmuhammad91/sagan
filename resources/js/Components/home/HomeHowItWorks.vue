@@ -20,7 +20,7 @@
 
         <!-- Title and Subtitle -->
         <div class="mb-12 text-center">
-            <h2 class="mb-4 text-3xl font-bold tracking-wide text-gray-900 home-heading">HOW IT WORKS</h2>
+            <h2 class="mb-4 text-3xl font-extrabold tracking-wide text-gray-900 home-heading">HOW IT WORKS</h2>
             <p class="max-w-md mx-auto text-lg font-medium leading-relaxed text-gray-600">
                 Follow these 3 simple steps and start receiving cash <br />
                 for your life's big moment
@@ -35,9 +35,9 @@
                     <div class="flex items-center justify-center w-16 h-16 mb-6">
                         <component :is="step.icon" class="w-12 h-12 text-gray-800 stroke-2" />
                     </div>
-                    <h3 class="mb-3 text-lg font-bold leading-tight tracking-wide text-center text-gray-900 home-heading"
+                    <h3 class="text-2xl font-extrabold leading-tight text-center text-gray-900 home-heading sm:text-3xl md:text-xl"
                         v-html="step.title" />
-                    <p class="text-sm leading-relaxed text-center text-gray-600">
+                    <p class="text-sm leading-relaxed text-center text-gray-600 font-space-grotesk">
                         {{ step.description }}
                     </p>
                 </div>
