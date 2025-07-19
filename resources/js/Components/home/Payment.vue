@@ -3,8 +3,8 @@
     <div class="flex flex-col-reverse items-center justify-between gap-12 mx-auto max-w-7xl lg:flex-row">
       <!-- Left Section -->
       <div class="max-w-xl text-center lg:text-left">
-        <h2 class="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">SECURE PAYMENTS</h2>
-        <p class="mb-6 text-gray-600">
+        <h2 class="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl home-heading">SECURE PAYMENTS</h2>
+        <p class="mb-6 text-gray-600 font-space-grotesk">
           We ensure the most stringent level of payment processing across a wide range of providers and we never sell your data.
         </p>
 

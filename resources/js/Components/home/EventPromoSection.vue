@@ -58,7 +58,7 @@
                     <li class="flex items-start justify-center gap-3 lg:justify-start">
                         <div
                             class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                            <CircleCheckBig :size="iconSize" class="w-4 h-4 text-primary" />
+                            <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
                         <span class="text-lg leading-relaxed text-gray-700">
                             A modern way to celebrate life's milestones
@@ -67,7 +67,7 @@
 
                     <li class="flex items-start justify-center gap-3 lg:justify-start">
                         <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                            <CircleCheckBig class="w-4 h-4 text-primary" />
+                            <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
                         <span class="text-lg leading-relaxed text-gray-700">
                             Culturally meaningful and inclusive
@@ -77,7 +77,7 @@
                     <li class="flex items-start justify-center gap-3 lg:justify-start">
                         <div
                             class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                            <CircleCheckBig class="w-4 h-4 text-primary" />
+                            <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
                         <span class="text-lg leading-relaxed text-gray-700">
                             Safe, fast, and simple
@@ -85,17 +85,18 @@
                     </li>
                 </ul>
 
-                <h3 class="mb-8 text-4xl font-bold leading-tight font-space-grotesk text-primary lg:text-5xl">
+                <h3 class="mb-8 text-4xl font-bold leading-tight home-heading font-space-grotesk text-primary lg:text-5xl">
                     START YOUR<br />
                     EVENT TODAY!
                 </h3>
 
-                <Link
-                    class="inline-flex items-center gap-1.5 px-5 py-2 text-sm rounded-full font-medium bg-[#272727] text-white transition-colors hover:bg-[#1f1f1f]"
-                    >
-                    <span>Share</span>
-                    <ArrowUpRight class="w-4 h-4" />
-                </Link>
+                <div class="flex justify-center lg:justify-start">
+                    <Link
+                        class="cursor-pointer inline-flex w-fit items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
+                        <span>Share</span>
+                        <ArrowUpRight class="w-4 h-4 text-white" />
+                    </Link>
+                </div>
 
             </div>
         </div>
@@ -106,7 +107,7 @@
 import { CircleCheckBig, ArrowUpRight } from 'lucide-vue-next'
 export default {
     name: 'EventPromoSection',
-    iconSize: 22,
+    iconSize: 52,
     data() {
         return {
             isPlaying: false,

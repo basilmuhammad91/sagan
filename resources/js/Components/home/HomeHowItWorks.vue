@@ -60,7 +60,7 @@
 
         <!-- Bottom Timeline with Diamond -->
         <div class="flex justify-center mt-12">
-            <div class="relative w-full max-w-4xl px-8">
+            <div class="relative w-full max-w-xl px-8">
                 <!-- Timeline line -->
                 <div class="w-full h-1 rounded-full bg-rose-200"></div>
                 <div class="absolute left-0 w-3 h-3 transform rotate-45 -translate-y-1/2 rounded-sm bg-primary top-1/2">
