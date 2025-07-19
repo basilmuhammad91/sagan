@@ -1,5 +1,8 @@
 <template>
-    <header class="sticky top-0 z-50 py-2 border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-sm">
+    <header :class="[
+        'sticky top-0 z-50 border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-sm',
+        isMobile ? 'py-1 px-3' : 'py-2 px-6'
+    ]">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -80,13 +83,13 @@
                     <button @click="toggleMobileMenu"
                         class="inline-flex items-center justify-center p-2 text-[#0E0E0E] transition-colors duration-200 rounded-md hover:text-primary hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" :class="{ 'hidden': mobileMenuOpen, 'block': !mobileMenuOpen }"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" :class="{ 'hidden': mobileMenuOpen, 'block': !mobileMenuOpen }" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <svg class="w-6 h-6" :class="{ 'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" :class="{ 'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -94,20 +97,19 @@
                 </div>
             </div>
 
-            <div v-if="mobileMenuOpen" class="absolute left-0 right-0 bg-white border-t border-gray-200 shadow-lg top-full md:hidden">
+            <div v-if="mobileMenuOpen"
+                class="absolute left-0 right-0 bg-white border-t border-gray-200 shadow-lg top-full md:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <Link href="/"
                         class="block px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 rounded-md navigation-font-family hover:text-primary hover:bg-pink-50"
-                        :class="{ 'text-primary bg-pink-50': $page.url === '/' }"
-                        @click="closeMobileMenu">Home</Link>
+                        :class="{ 'text-primary bg-pink-50': $page.url === '/' }" @click="closeMobileMenu">Home</Link>
                     <Link href="/about"
                         class="block px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 rounded-md navigation-font-family hover:text-primary hover:bg-pink-50"
-                        :class="{ 'text-primary bg-pink-50': $page.url === '/about' }"
-                        @click="closeMobileMenu">About Us</Link>
+                        :class="{ 'text-primary bg-pink-50': $page.url === '/about' }" @click="closeMobileMenu">About Us
+                    </Link>
                     <Link href="/faq"
                         class="block px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 rounded-md navigation-font-family hover:text-primary hover:bg-pink-50"
-                        :class="{ 'text-primary bg-pink-50': $page.url === '/faq' }"
-                        @click="closeMobileMenu">FAQ</Link>
+                        :class="{ 'text-primary bg-pink-50': $page.url === '/faq' }" @click="closeMobileMenu">FAQ</Link>
 
                     <div class="pt-4 pb-3 border-t border-gray-200">
                         <template v-if="!user">
@@ -115,13 +117,13 @@
                                 <Link href="/login"
                                     class="flex-1 inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border"
                                     @click="closeMobileMenu">
-                                    Login
+                                Login
                                 </Link>
                                 <Link href="/register"
                                     class="flex-1 inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]"
                                     @click="closeMobileMenu">
-                                    <span>Start</span>
-                                    <ArrowUpRight class="w-4 h-4" />
+                                <span>Start</span>
+                                <ArrowUpRight class="w-4 h-4" />
                                 </Link>
                             </div>
                         </template>

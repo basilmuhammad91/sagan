@@ -5,11 +5,13 @@
             <div v-if="!isMobile" class="flex justify-center w-full lg:w-1/2">
                 <div class="p-10 shadow-lg bg-primary rounded-3xl">
                     <div class="relative w-[400px] h-[250px] m-auto mt-6 mb-6">
-                        <img src="/assets/images/event-laptop.png" alt="Laptop Frame" class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none">
+                        <img src="/assets/images/event-laptop.png" alt="Laptop Frame"
+                            class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none">
 
-                        <div class="absolute top-[24px] left-[44px] w-[310px] h-[190px] overflow-hidden rounded mx-auto">
-                            <video ref="videoPlayer" class="object-cover w-full h-full" :poster="videoPoster" preload="metadata"
-                                @loadedmetadata="onVideoLoaded">
+                        <div
+                            class="absolute top-[24px] left-[44px] w-[310px] h-[190px] overflow-hidden rounded mx-auto">
+                            <video ref="videoPlayer" class="object-cover w-full h-full" :poster="videoPoster"
+                                preload="metadata" @loadedmetadata="onVideoLoaded">
                                 <source :src="videoSrc" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
@@ -37,11 +39,13 @@
                                             <path d="M8 5v14l11-7z" />
                                         </svg>
                                     </button>
-                                    <div class="flex-1 h-2 bg-gray-600 rounded-full cursor-pointer" @click="handleProgressClick">
+                                    <div class="flex-1 h-2 bg-gray-600 rounded-full cursor-pointer"
+                                        @click="handleProgressClick">
                                         <div class="h-2 transition-all duration-300 rounded-full bg-primary"
                                             :style="{ width: `${progress}%` }"></div>
                                     </div>
-                                    <span class="text-sm text-white">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+                                    <span class="text-sm text-white">{{ formatTime(currentTime) }} / {{
+                                        formatTime(duration) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -52,37 +56,19 @@
             <!-- Text Content -->
             <div class="w-full text-center lg:w-1/2 lg:text-left">
                 <ul class="mb-8 space-y-4">
-                    <li class="flex items-start justify-center gap-3 lg:justify-start">
-                        <div
-                            class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                            <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
-                        </div>
-                        <span class="text-base font-medium leading-relaxed text-gray-700 md:text-lg">
-                            A modern way to celebrate life's milestones
-                        </span>
-                    </li>
-
-                    <li class="flex items-start justify-center gap-3 lg:justify-start">
+                    <li v-for="(feature, index) in features" :key="index"
+                        :class="['flex items-start gap-3', isMobile ? 'justify-start' : 'justify-center lg:justify-start']">
                         <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
                             <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
                         </div>
                         <span class="text-base font-medium leading-relaxed text-gray-700 md:text-lg">
-                            Culturally meaningful and inclusive
-                        </span>
-                    </li>
-
-                    <li class="flex items-start justify-center gap-3 lg:justify-start">
-                        <div
-                            class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                            <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
-                        </div>
-                        <span class="text-base font-medium leading-relaxed text-gray-700 md:text-lg">
-                            Safe, fast, and simple
+                            {{ feature }}
                         </span>
                     </li>
                 </ul>
 
-                <h3 class="mb-8 text-3xl font-bold leading-tight md:text-4xl home-heading font-space-grotesk text-primary lg:text-5xl">
+                <h3
+                    class="mb-8 text-3xl font-bold leading-tight md:text-4xl home-heading font-space-grotesk text-primary lg:text-5xl">
                     START YOUR<br />
                     EVENT TODAY!
                 </h3>
@@ -90,8 +76,8 @@
                 <div class="flex justify-center lg:justify-start">
                     <Link
                         class="cursor-pointer inline-flex w-fit items-center gap-1.5 px-6 md:px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
-                        <span>Share</span>
-                        <ArrowUpRight class="w-4 h-4 text-white" />
+                    <span>Share</span>
+                    <ArrowUpRight class="w-4 h-4 text-white" />
                     </Link>
                 </div>
             </div>
@@ -101,21 +87,14 @@
                 <div class="max-w-sm p-6 shadow-lg bg-primary rounded-3xl">
                     <div class="relative w-[280px] h-[180px] m-auto" ref="mobileContainer">
                         <!-- Mobile frame image -->
-                        <img
-                            ref="mobileFrame"
-                            src="/assets/images/event-mobile.png"
-                            alt="Mobile Frame"
+                        <img ref="mobileFrame" src="/assets/images/event-mobile.png" alt="Mobile Frame"
                             class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none"
-                            @load="calculateMobileVideoArea"
-                        >
+                            @load="calculateMobileVideoArea">
 
                         <!-- Dynamic video container positioning -->
-                        <div
-                            class="absolute overflow-hidden rounded-lg"
-                            :style="mobileVideoStyle"
-                        >
-                            <video ref="mobileVideoPlayer" class="object-cover w-full h-full" :poster="videoPoster" preload="metadata"
-                                @loadedmetadata="onVideoLoaded">
+                        <div class="absolute overflow-hidden rounded-lg" :style="mobileVideoStyle">
+                            <video ref="mobileVideoPlayer" class="object-cover w-full h-full" :poster="videoPoster"
+                                preload="metadata" @loadedmetadata="onVideoLoaded">
                                 <source :src="videoSrc" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
@@ -143,11 +122,13 @@
                                             <path d="M8 5v14l11-7z" />
                                         </svg>
                                     </button>
-                                    <div class="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer" @click="handleProgressClick">
+                                    <div class="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
+                                        @click="handleProgressClick">
                                         <div class="h-1.5 transition-all duration-300 rounded-full bg-primary"
                                             :style="{ width: `${progress}%` }"></div>
                                     </div>
-                                    <span class="text-xs text-white">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+                                    <span class="text-xs text-white">{{ formatTime(currentTime) }} / {{
+                                        formatTime(duration) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -165,6 +146,11 @@ export default {
     iconSize: 52,
     data() {
         return {
+            features: [
+                "A modern way to celebrate life's milestones",
+                'Culturally meaningful and inclusive',
+                'Safe, fast, and simple',
+            ],
             isPlaying: false,
             currentTime: 0,
             duration: 0,
@@ -307,14 +293,6 @@ export default {
 </script>
 
 <style scoped>
-.text-primary {
-    color: var(--primary-color, #ec4899);
-}
-
-.bg-primary {
-    background-color: var(--primary-color, #ec4899);
-}
-
 .text-secondary {
     color: var(--secondary-color, #6b7280);
 }
