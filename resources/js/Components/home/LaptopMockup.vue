@@ -27,10 +27,10 @@
 
 
                         <div class="grid max-w-4xl grid-cols-3 gap-4 mx-auto">
-                            <div v-for="(image, index) in images" :key="index"
+                            <div v-for="(image, index) in images.sort(() => Math.random() - 0.5)" :key="index"
                                 class="overflow-hidden shadow-lg cursor-pointer rounded-xl group">
                                 <img :src="image.src" :alt="image.alt"
-                                    class="object-cover w-full h-32 transition-transform duration-300 group-hover:scale-105"
+                                    class="object-cover w-full h-[200px] transition-transform duration-300 group-hover:scale-105"
                                     loading="lazy" />
                             </div>
                         </div>
