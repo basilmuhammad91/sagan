@@ -24,6 +24,9 @@ export default {
                 background: "var(--color-background)",
                 secondary: "var(--color-secondary)",
             },
+            fontFamily: {
+                grotesk: ['"Right Grotesk Medium"', "sans-serif"],
+            },
         },
     },
     plugins: [],

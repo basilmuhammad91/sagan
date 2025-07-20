@@ -12,9 +12,9 @@
 }
 
 @font-face {
-  font-family: 'AktivGrotesk';
-  src: url('/assets/fonts/AktivGrotesk-Regular.woff') format('woff');
-  font-weight: 500;
+  font-family: 'Right Grotesk Medium';
+  src: url('/assets/fonts/RightGrotesk-Medium.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -37,6 +37,7 @@
 .basil-heading {
   font-size: 20px;
   font-weight: bold;
+  font-family: 'Right Grotesk Medium', sans-serif;
 }
 
 .navigation-font {
@@ -45,9 +46,11 @@
 }
 
 .home-heading {
-    font-family: 'Space Grotesk', sans-serif;
+    /* font-family: 'Space Grotesk', sans-serif; */
+    font-family: 'Right Grotesk Medium', sans-serif;
     text-transform: uppercase;
     font-weight: 900 !important;
+    line-height: 1.1 !important;
 }
 
 .font-space-grotesk {
