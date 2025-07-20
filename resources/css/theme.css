@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: 'Right Grotesk';
-  src: url('../../public/assets/fonts/RightGrotesk-Medium.woff') format('woff');
+  src: url('/assets/fonts/RightGrotesk-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -36,12 +36,6 @@
   color: var(--color-primary) !important;
 }
 
-.basil-heading {
-  font-size: 20px;
-  font-weight: bold;
-  font-family: 'Right Grotesk Medium', sans-serif;
-}
-
 .navigation-font {
     font-family: 'Inter', sans-serif;
     font-weight: 600 !important;
@@ -60,14 +54,13 @@
 }
 
 .font-grotesk {
-    font-family: 'AktivGrotesk', sans-serif;
+    font-family: 'Right Grotesk', sans-serif !important;
 }
 
 .home-tradition-para {
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
 }
-
 
 .font-cormorant-upright {
     font-family: Cormorant Upright;

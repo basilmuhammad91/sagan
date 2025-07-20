@@ -25,7 +25,7 @@ export default {
                 secondary: "var(--color-secondary)",
             },
             fontFamily: {
-                grotesk: ['"Right Grotesk Medium"', "sans-serif"],
+                grotesk: ["Right Grotesk", ...defaultTheme.fontFamily.sans],
             },
         },
     },
