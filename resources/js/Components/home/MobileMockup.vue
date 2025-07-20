@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center py-5 bg-gray-100">
+    <div :class="['flex items-center justify-center py-5', comingSoon ? 'bg-pink-100' : 'bg-white']">
         <div class="relative">
             <!-- Mobile Frame Image -->
             <img :src="mobileFrameImage" alt="Mobile Frame" class="w-full h-auto max-w-xs mx-auto" />

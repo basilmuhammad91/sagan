@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center py-5 bg-gray-100">
+    <div :class="['flex items-center justify-center py-5', comingSoon ? 'bg-pink-100' : 'bg-white']">
         <div class="relative">
             <!-- Laptop Frame Image -->
             <img :src="laptopFrameImage" alt="Laptop Frame" class="w-auto h-auto max-w-full" />
@@ -52,6 +52,10 @@ export default {
         MainHeader
     },
     props: {
+        comingSoon: {
+            type: Boolean,
+            default: null
+        },
         currentUrl: {
             type: String,
             default: 'https://saganonline.com'

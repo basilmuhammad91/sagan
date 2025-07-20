@@ -38,4 +38,8 @@ class HomeController extends Controller
         return Inertia::render('FAQPage');
     }
 
+    public function comingSoon() {
+        return Inertia::render('ComingSoon');
+    }
+
 }
