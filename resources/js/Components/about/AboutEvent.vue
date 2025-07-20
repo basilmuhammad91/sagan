@@ -1,29 +1,28 @@
 <template>
     <section class="px-6 py-12 bg-pink-50 sm:px-16 lg:px-32">
-        <div class="flex flex-col-reverse items-center gap-8 md:flex-row md:justify-between">
-            <!-- Left Content -->
-            <div class="w-full text-center md:w-1/2 md:text-left">
-                <h2 class="text-xl font-extrabold leading-snug text-gray-900 sm:text-2xl md:text-3xl">
-                    REDEFINING GIFTING:<br />
-                    EFFORTLESS, MEANINGFUL,<br />
-                    AND SEAMLESS
-                </h2>
-            </div>
-
-            <!-- Right Content -->
-            <div class="w-full text-sm leading-relaxed text-gray-800 md:w-1/2 sm:text-base">
-                <p class="mb-4">
-                    We created SAGANonline to make it easier, safer, and more meaningful to send and receive cash
-                    gifts—without the hassle of handling physical cash or coordinating group collections.
-                </p>
-                <p>
-                    Whether it’s a family gifting tradition, a workplace collection, or a cultural celebration like
-                    Eidiya, Hongbao, or Salami, we empower hosts to personalize their experience while ensuring a
-                    seamless and intuitive giving process.
-                </p>
-            </div>
+    <div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
+        <!-- Left Content (appears first on mobile) -->
+        <div class="w-full text-center md:w-1/2 md:text-left">
+            <h2 class="mb-4 text-3xl font-extrabold leading-tight text-[#272727] home-heading md:text-4xl">
+                REDEFINING GIFTING:<br />
+                EFFORTLESS, MEANINGFUL,<br />
+                AND SEAMLESS
+            </h2>
         </div>
-    </section>
+        <!-- Right Content (appears second on mobile) -->
+        <div class="w-full text-sm font-semibold leading-relaxed text-gray-800 md:w-1/2 sm:text-base font-space-grotesk">
+            <p class="mb-4">
+                We created SAGANonline to make it easier, safer, and more meaningful to send and receive cash
+                gifts—without the hassle of handling physical cash or coordinating group collections.
+            </p>
+            <p>
+                Whether it's a family gifting tradition, a workplace collection, or a cultural celebration like
+                Eidiya, Hongbao, or Salami, we empower hosts to personalize their experience while ensuring a
+                seamless and intuitive giving process.
+            </p>
+        </div>
+    </div>
+</section>
 
     <section v-if="!isMobile" class="px-4 py-16 bg-white">
         <div class="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">

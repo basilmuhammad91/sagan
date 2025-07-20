@@ -2,8 +2,8 @@
     <div class="min-h-screen bg-gradient-to-br from-pink-100 via-pink-50 to-pink-200">
         <main class="px-4 pt-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="mb-5 text-center">
-                <h1 style="font-family: Cormorant Upright;"
-                    class="px-4 mb-8 text-4xl font-light leading-tight text-gray-800 md:text-5xl lg:text-6xl">
+                <h1
+                    class="px-4 mb-8 text-4xl font-light leading-tight text-gray-800 font-cormorant-upright md:text-5xl lg:text-6xl">
                     Join us in modernizing cash gift-giving—one<br class="hidden sm:block">
                     celebration at a time.
                 </h1>
@@ -43,46 +43,39 @@
                     </div>
 
                     <!-- Mobile View: 2 columns, Help spans full width -->
-<div v-if="isMobile" class="grid grid-cols-2 gap-6">
-  <div
-    v-for="(section, index) in footerLinks"
-    :key="index"
-    :class="index === 2 ? 'col-span-2' : ''"
-  >
-    <h3 class="mb-2 text-sm font-semibold text-[#272727] font-space-grotesk">
-      {{ section.title }}
-    </h3>
-    <ul class="space-y-2 text-xs">
-      <li v-for="(link, linkIndex) in section.links" :key="linkIndex">
-        <a
-          :href="link.href"
-          class="text-[#272727] font-space-grotesk transition-colors duration-200 hover:text-primary font-medium"
-        >
-          {{ link.label }}
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+                    <div v-if="isMobile" class="grid grid-cols-2 gap-6">
+                        <div v-for="(section, index) in footerLinks" :key="index"
+                            :class="index === 2 ? 'col-span-2' : ''">
+                            <h3 class="mb-2 text-sm font-semibold text-[#272727] font-space-grotesk">
+                                {{ section.title }}
+                            </h3>
+                            <ul class="space-y-2 text-xs">
+                                <li v-for="(link, linkIndex) in section.links" :key="linkIndex">
+                                    <a :href="link.href"
+                                        class="text-[#272727] font-space-grotesk transition-colors duration-200 hover:text-primary font-medium">
+                                        {{ link.label }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-<!-- Desktop View: Original layout -->
-<div v-else class="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-3">
-  <div v-for="(section, index) in footerLinks" :key="index">
-    <h3 class="mb-4 text-lg font-semibold text-[#272727] font-space-grotesk">
-      {{ section.title }}
-    </h3>
-    <ul class="space-y-3 text-sm">
-      <li v-for="(link, linkIndex) in section.links" :key="linkIndex">
-        <a
-          :href="link.href"
-          class="text-[#272727] font-space-grotesk transition-colors duration-200 hover:text-primary font-medium"
-        >
-          {{ link.label }}
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+                    <!-- Desktop View: Original layout -->
+                    <div v-else class="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-3">
+                        <div v-for="(section, index) in footerLinks" :key="index">
+                            <h3 class="mb-4 text-lg font-semibold text-[#272727] font-space-grotesk">
+                                {{ section.title }}
+                            </h3>
+                            <ul class="space-y-3 text-sm">
+                                <li v-for="(link, linkIndex) in section.links" :key="linkIndex">
+                                    <a :href="link.href"
+                                        class="text-[#272727] font-space-grotesk transition-colors duration-200 hover:text-primary font-medium">
+                                        {{ link.label }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
 
                     <!-- Copyright - Mobile -->

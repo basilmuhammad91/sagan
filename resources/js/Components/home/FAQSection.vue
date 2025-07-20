@@ -1,13 +1,17 @@
 <template>
     <section class="relative px-8 py-20 overflow-hidden bg-white sm:px-16 lg:px-32">
         <div class="max-w-4xl mx-auto">
-            <div class="mb-16 text-center">
+            <div class="mb-8 text-center">
                 <h2 class="text-4xl font-bold tracking-wide text-gray-900 home-heading">
                     FREQUENTLY ASKED QUESTIONS
                 </h2>
+
+                <h4 v-if="showAll" class="mt-8 text-3xl font-medium text-[#272727] font-cormorant-upright ">
+                    Top Questions
+                </h4>
             </div>
 
-            <div class="">
+            <div class="mt-8">
                 <div v-for="(faq, index) in faqs" :key="faq.id" class="rounded-lg">
                     <button @click="toggleFaq(index)"
                         class="flex items-center justify-between w-full px-6 py-5 text-left transition-colors duration-200 rounded-lg hover:bg-gray-100">
@@ -30,24 +34,34 @@
                 </div>
             </div>
 
-            <div v-if="showAll == true" class="mt-12 text-center">
-                <button
-                    class="font-medium text-gray-900 transition-colors duration-200 border-b border-gray-900 font-space-grotesk hover:text-pink-500 hover:border-pink-500">
-                    View all FAQs
-                </button>
-            </div>
+            <template v-if="showAll == true">
+                <div v-if="!isMobile" class="mt-12 text-center">
+                    <button
+                        class="font-medium text-gray-900 transition-colors duration-200 border-b border-gray-900 font-space-grotesk hover:text-pink-500 hover:border-pink-500">
+                        View all FAQs
+                    </button>
+                </div>
+                <div class="mt-12 text-center">
+                    <button
+                        class="inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700">
+                        Something Else? Contact us
+                        <ArrowUpRight :size="25" />
+                    </button>
+                </div>
+            </template>
         </div>
     </section>
 </template>
 
 <script>
-import { ArrowRight } from 'lucide-vue-next'
+import { ArrowRight, ArrowUpRight } from 'lucide-vue-next'
 
 export default {
     name: 'FaqSection',
     props: ["showAll"],
     components: {
         ArrowRight,
+        ArrowUpRight
     },
     data() {
         return {
