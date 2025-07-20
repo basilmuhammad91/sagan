@@ -1,105 +1,131 @@
 <template>
-    <section class="px-4 py-16 bg-white">
+    <section class="px-6 py-12 bg-pink-50 sm:px-16 lg:px-32">
+        <div class="flex flex-col-reverse items-center gap-8 md:flex-row md:justify-between">
+            <!-- Left Content -->
+            <div class="w-full text-center md:w-1/2 md:text-left">
+                <h2 class="text-xl font-extrabold leading-snug text-gray-900 sm:text-2xl md:text-3xl">
+                    REDEFINING GIFTING:<br />
+                    EFFORTLESS, MEANINGFUL,<br />
+                    AND SEAMLESS
+                </h2>
+            </div>
+
+            <!-- Right Content -->
+            <div class="w-full text-sm leading-relaxed text-gray-800 md:w-1/2 sm:text-base">
+                <p class="mb-4">
+                    We created SAGANonline to make it easier, safer, and more meaningful to send and receive cash
+                    gifts—without the hassle of handling physical cash or coordinating group collections.
+                </p>
+                <p>
+                    Whether it’s a family gifting tradition, a workplace collection, or a cultural celebration like
+                    Eidiya, Hongbao, or Salami, we empower hosts to personalize their experience while ensuring a
+                    seamless and intuitive giving process.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section v-if="!isMobile" class="px-4 py-16 bg-white">
         <div class="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
             <!-- Video Section - Desktop -->
-            <div v-if="!isMobile" class="flex justify-center w-full">
-                <div class="p-10 shadow-lg bg-primary rounded-3xl">
-                    <div class="relative w-[400px] h-[250px] m-auto mt-6 mb-6">
-                        <img src="/assets/images/event-laptop.png" alt="Laptop Frame"
-                            class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none">
+            <div class="flex justify-center w-full">
+                <div class="relative w-[600px] h-[350px] m-auto mt-6 mb-6">
+                    <img src="/assets/images/event-laptop.png" alt="Laptop Frame"
+                        class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none">
 
-                        <div
-                            class="absolute top-[24px] left-[44px] w-[310px] h-[190px] overflow-hidden rounded mx-auto">
-                            <video ref="videoPlayer" class="object-cover w-full h-full" :poster="videoPoster"
-                                preload="metadata" @loadedmetadata="onVideoLoaded">
-                                <source :src="videoSrc" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                    <div class="absolute top-[24px] left-[75px] w-[450px] h-[290px] overflow-hidden rounded mx-auto">
+                        <video ref="videoPlayer" class="object-cover w-full h-full" :poster="videoPoster"
+                            preload="metadata" @loadedmetadata="onVideoLoaded">
+                            <source :src="videoSrc" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
 
-                            <div v-if="!isPlaying"
-                                class="absolute inset-0 flex items-center justify-center bg-black cursor-pointer bg-opacity-20"
-                                @click="togglePlay">
-                                <button
-                                    class="p-4 transition-all duration-300 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 ml-1 text-primary"
-                                        fill="currentColor" viewBox="0 0 24 24">
+                        <div v-if="!isPlaying"
+                            class="absolute inset-0 flex items-center justify-center bg-black cursor-pointer bg-opacity-20"
+                            @click="togglePlay">
+                            <button
+                                class="p-4 transition-all duration-300 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 ml-1 text-primary"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div v-if="isPlaying"
+                            class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <div class="flex items-center gap-4">
+                                <button @click="togglePlay" class="text-white transition-colors hover:text-primary">
+                                    <svg v-if="isPlaying" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                    </svg>
+                                    <svg v-else class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </button>
-                            </div>
-
-                            <div v-if="isPlaying"
-                                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                                <div class="flex items-center gap-4">
-                                    <button @click="togglePlay" class="text-white transition-colors hover:text-primary">
-                                        <svg v-if="isPlaying" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                                        </svg>
-                                        <svg v-else class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </button>
-                                    <div class="flex-1 h-2 bg-gray-600 rounded-full cursor-pointer"
-                                        @click="handleProgressClick">
-                                        <div class="h-2 transition-all duration-300 rounded-full bg-primary"
-                                            :style="{ width: `${progress}%` }"></div>
-                                    </div>
-                                    <span class="text-sm text-white">{{ formatTime(currentTime) }} / {{
-                                        formatTime(duration) }}</span>
+                                <div class="flex-1 h-2 bg-gray-600 rounded-full cursor-pointer"
+                                    @click="handleProgressClick">
+                                    <div class="h-2 transition-all duration-300 rounded-full bg-primary"
+                                        :style="{ width: `${progress}%` }"></div>
                                 </div>
+                                <span class="text-sm text-white">{{ formatTime(currentTime) }} / {{
+                                    formatTime(duration) }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section v-if="isMobile" class="px-4 py-16 bg-white">
+        <div class="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
             <!-- Video Section - Mobile (DYNAMIC) -->
-            <div v-if="isMobile" class="flex justify-center w-full mb-8">
-                <div class="max-w-sm p-6 shadow-lg bg-primary rounded-3xl">
-                    <div class="relative w-[280px] h-[180px] m-auto" ref="mobileContainer">
-                        <!-- Mobile frame image -->
-                        <img ref="mobileFrame" src="/assets/images/event-mobile.png" alt="Mobile Frame"
-                            class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none"
-                            @load="calculateMobileVideoArea">
+            <div class="flex justify-center w-full mb-8">
+                <div class="relative w-[280px] h-[180px] m-auto" ref="mobileContainer">
+                    <!-- Mobile frame image -->
+                    <img ref="mobileFrame" src="/assets/images/event-mobile.png" alt="Mobile Frame"
+                        class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none"
+                        @load="calculateMobileVideoArea">
 
-                        <!-- Dynamic video container positioning -->
-                        <div class="absolute overflow-hidden rounded-lg" :style="mobileVideoStyle">
-                            <video ref="mobileVideoPlayer" class="object-cover w-full h-full" :poster="videoPoster"
-                                preload="metadata" @loadedmetadata="onVideoLoaded">
-                                <source :src="videoSrc" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                    <!-- Dynamic video container positioning -->
+                    <div class="absolute overflow-hidden rounded-lg" :style="mobileVideoStyle">
+                        <video ref="mobileVideoPlayer" class="object-cover w-full h-full" :poster="videoPoster"
+                            preload="metadata" @loadedmetadata="onVideoLoaded">
+                            <source :src="videoSrc" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
 
-                            <div v-if="!isPlaying"
-                                class="absolute inset-0 flex items-center justify-center bg-black cursor-pointer bg-opacity-20"
-                                @click="togglePlay">
-                                <button
-                                    class="p-3 transition-all duration-300 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-0.5 text-primary"
-                                        fill="currentColor" viewBox="0 0 24 24">
+                        <div v-if="!isPlaying"
+                            class="left-[50px] w-[200px] absolute inset-0 flex items-center justify-center bg-black cursor-pointer bg-opacity-20"
+                            @click="togglePlay">
+                            <button
+                                class="p-3 transition-all duration-300 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-0.5 text-primary"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div v-if="isPlaying"
+                            class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                            <div class="flex items-center gap-2">
+                                <button @click="togglePlay" class="text-white transition-colors hover:text-primary">
+                                    <svg v-if="isPlaying" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                    </svg>
+                                    <svg v-else class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </button>
-                            </div>
-
-                            <div v-if="isPlaying"
-                                class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                                <div class="flex items-center gap-2">
-                                    <button @click="togglePlay" class="text-white transition-colors hover:text-primary">
-                                        <svg v-if="isPlaying" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                                        </svg>
-                                        <svg v-else class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </button>
-                                    <div class="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
-                                        @click="handleProgressClick">
-                                        <div class="h-1.5 transition-all duration-300 rounded-full bg-primary"
-                                            :style="{ width: `${progress}%` }"></div>
-                                    </div>
-                                    <span class="text-xs text-white">{{ formatTime(currentTime) }} / {{
-                                        formatTime(duration) }}</span>
+                                <div class="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
+                                    @click="handleProgressClick">
+                                    <div class="h-1.5 transition-all duration-300 rounded-full bg-primary"
+                                        :style="{ width: `${progress}%` }"></div>
                                 </div>
+                                <span class="text-xs text-white">{{ formatTime(currentTime) }} / {{
+                                    formatTime(duration) }}</span>
                             </div>
                         </div>
                     </div>
