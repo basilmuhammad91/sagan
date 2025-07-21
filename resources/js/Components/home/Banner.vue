@@ -1,15 +1,15 @@
 <template>
     <div class="w-full bg-[#feb5c0] relative overflow-hidden">
         <!-- Slider Container -->
-        <div class="relative h-full">
+        <div class="relative h-[500px]">
             <!-- Slide 1 - Image Slide -->
             <div class="inset-0 transition-transform duration-700 ease-in-out"
                 :class="{ 'translate-x-0': currentSlide === 0, 'translate-x-full': currentSlide !== 0 }">
                 <div class="flex flex-col items-stretch h-full gap-0 mx-auto lg:flex-row">
                     <!-- Right Side - Image -->
                     <div class="relative order-1 w-full h-64 lg:flex-1 sm:h-80 lg:h-auto lg:order-2">
-                        <img src="/assets/images/banner-image.png" alt="Wedding ceremony with flower petals"
-                            class="object-cover w-full h-full" />
+                        <img src="/assets/images/banner3.png" alt="Wedding ceremony with flower petals"
+                            class="w-full h-full object-fit" />
                     </div>
 
                     <!-- Left Side - Text Content -->

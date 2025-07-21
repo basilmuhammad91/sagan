@@ -13,25 +13,25 @@
 
                 <nav class="items-center hidden space-x-8 md:flex">
                     <Link href="/"
-                        class="font-medium text-gray-700 transition-colors duration-200 hover:text-primary navigation-font-family"
+                        class="font-medium text-gray-700 transition-colors duration-200 font-space-grotesk hover:text-primary navigation-font-family"
                         :class="{ 'text-primary': $page.url === '/' }">Home</Link>
                     <Link href="/about"
-                        class="font-medium text-gray-700 transition-colors duration-200 navigation-font-family hover:text-primary"
+                        class="font-medium text-gray-700 transition-colors duration-200 font-space-grotesk navigation-font-family hover:text-primary"
                         :class="{ 'text-primary': $page.url === '/about' }">About Us</Link>
                     <Link href="/faq"
-                        class="font-medium text-gray-700 transition-colors duration-200 navigation-font-family hover:text-primary"
+                        class="font-medium text-gray-700 transition-colors duration-200 font-space-grotesk navigation-font-family hover:text-primary"
                         :class="{ 'text-primary': $page.url === '/faq' }">FAQ</Link>
                 </nav>
 
                 <div class="items-center hidden space-x-4 md:flex">
                     <template v-if="!user">
                         <Link href="/login"
-                            class="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border">
+                            class="font-space-grotesk inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border">
                         Login
                         </Link>
 
                         <Link href="/register"
-                            class="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
+                            class="font-space-grotesk inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
                         <span>Start</span>
                         <ArrowUpRight class="w-4 h-4" />
                         </Link>
@@ -42,10 +42,10 @@
                             <button @click="toggleUserDropdown"
                                 class="flex items-center px-3 py-2 space-x-2 font-medium text-[#0E0E0E] transition-colors duration-200 rounded-md hover:text-primary hover:bg-pink-50">
                                 <div
-                                    class="flex items-center justify-center w-8 h-8 text-sm font-medium text-white rounded-full bg-primary">
+                                    class="flex items-center justify-center w-8 h-8 text-sm font-medium text-white rounded-full font-space-grotesk bg-primary">
                                     {{ getUserInitials(user.name) }}
                                 </div>
-                                <span class="hidden sm:block">{{ user.name }}</span>
+                                <span class="hidden font-space-grotesk sm:block">{{ user.name }}</span>
                                 <svg class="w-4 h-4 transition-transform duration-200"
                                     :class="{ 'rotate-180': userDropdownOpen }" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -57,8 +57,8 @@
                                 class="absolute right-0 z-50 w-48 mt-2 bg-white border border-gray-200 rounded-md shadow-lg">
                                 <div class="py-1">
                                     <div class="px-4 py-2 text-sm text-gray-700 border-b border-gray-100">
-                                        <div class="font-medium">{{ user.name }}</div>
-                                        <div class="text-gray-500">{{ user.email }}</div>
+                                        <div class="font-medium font-space-grotesk">{{ user.name }}</div>
+                                        <div class="text-gray-500 font-space-grotesk">{{ user.email }}</div>
                                     </div>
                                     <Link href="/profile"
                                         class="block px-4 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-pink-50"

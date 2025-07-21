@@ -14,7 +14,15 @@
 
 @font-face {
   font-family: 'Right Grotesk';
-  src: url('/assets/fonts/RightGrotesk-Medium.woff') format('woff');
+  src: local('RightGrotesk'), url('../../public/assets/fonts/RightGrotesk/RightGrotesk-Medium.woff2') format('woff2'), url('../../public/assets/fonts/RightGrotesk/RightGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: local('AktivGrotesk'), url('../../public/assets/fonts/AktivGrotesk/AktivGrotesk-Medium.woff2') format('woff2'), url('../../public/assets/fonts/AktivGrotesk/AktivGrotesk-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -43,18 +51,19 @@
 
 .home-heading {
     /* font-family: 'Space Grotesk', sans-serif; */
-    font-family: 'Right Grotesk Medium', sans-serif;
+    font-family: 'Right Grotesk', sans-serif;
     text-transform: uppercase;
     font-weight: 900 !important;
     line-height: 1.1 !important;
 }
 
 .font-space-grotesk {
-    font-family: 'Space Grotesk', sans-serif;
+    /* font-family: 'Space Grotesk', sans-serif; */
+    font-family: 'Aktiv Grotesk', sans-serif !important;
 }
 
 .font-grotesk {
-    font-family: 'Right Grotesk', sans-serif !important;
+    font-family: 'Aktiv Grotesk', sans-serif !important;
 }
 
 .home-tradition-para {
