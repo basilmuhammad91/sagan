@@ -2,16 +2,16 @@
     <section class="px-4 py-12 bg-secondary">
         <!-- Toggle Buttons -->
         <div class="flex justify-center mb-8">
-            <div class="inline-flex p-1 overflow-hidden bg-gray-100 border border-gray-200 rounded-full shadow-sm">
+            <div style="border: solid 1px #FFB5C0" class="inline-flex p-1 overflow-hidden bg-white border border-gray-200 rounded-full shadow-sm">
                 <button @click="mode = 'host'" :class="[
-                    'px-8 py-3 text-sm font-bold tracking-wide transition-all duration-200 rounded-full',
-                    mode === 'host' ? 'bg-[#feb5c0] text-gray-800 shadow-sm' : 'text-gray-500 hover:text-gray-700 bg-transparent'
+                    'font-space-grotesk px-8 py-3 text-sm font-bold tracking-wide transition-all duration-200 rounded-full',
+                    mode === 'host' ? 'bg-[#feb5c0] text-gray-800 shadow-sm' : 'bg-[#F5F5F5] text-gray-500 hover:text-gray-700 bg-transparent'
                 ]">
                     HOST
                 </button>
                 <button @click="mode = 'guest'" :class="[
-                    'px-8 py-3 text-sm font-bold tracking-wide transition-all duration-200 rounded-full',
-                    mode === 'guest' ? 'bg-[#feb5c0] text-gray-800 shadow-sm' : 'text-gray-500 hover:text-gray-700 bg-transparent'
+                    'font-space-grotesk px-8 py-3 text-sm font-bold tracking-wide transition-all duration-200 rounded-full',
+                    mode === 'guest' ? 'bg-[#feb5c0] text-gray-800 shadow-sm' : 'bg-[#F5F5F5] text-gray-500 hover:text-gray-700 bg-transparent'
                 ]">
                     GUEST
                 </button>
@@ -21,7 +21,7 @@
         <!-- Title and Subtitle -->
         <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-extrabold tracking-wide text-gray-900 home-heading">HOW IT WORKS</h2>
-            <p class="max-w-md mx-auto text-lg font-medium leading-relaxed text-gray-600">
+            <p class="max-w-md mx-auto text-lg font-medium leading-relaxed text-[#272727] font-space-grotesk">
                 Follow these 3 simple steps and start receiving cash <br />
                 for your life's big moment
             </p>
@@ -30,32 +30,32 @@
         <!-- Cards Section -->
         <div class="grid max-w-4xl gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
             <template v-if="mode === 'host'">
-                <div v-for="(step, i) in hostSteps" :key="'host-' + i"
+                <div style="border: solid 1px #FFB5C0" v-for="(step, i) in hostSteps" :key="'host-' + i"
                     class="flex flex-col items-center p-8 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group">
                     <div class="flex items-center justify-center w-16 h-16 mb-6">
                         <component :is="step.icon"
                             class="w-12 h-12 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
                     </div>
-                    <h3 class="text-2xl font-extrabold leading-tight text-center text-gray-900 transition-colors duration-300 home-heading sm:text-3xl md:text-xl group-hover:text-gray-900"
+                    <h3 class="text-2xl font-extrabold leading-tight text-center text-[#272727] font-space-grotesk transition-colors duration-300 home-heading sm:text-3xl md:text-xl group-hover:text-gray-900"
                         v-html="step.title" />
                     <p
-                        class="text-sm leading-relaxed text-center text-gray-600 transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
+                        class="text-sm leading-relaxed text-center text-[#272727] transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
                         {{ step.description }}
                     </p>
                 </div>
             </template>
 
             <template v-else>
-                <div v-for="(step, i) in guestSteps" :key="'guest-' + i"
+                <div style="border: solid 1px #FFB5C0" v-for="(step, i) in guestSteps" :key="'guest-' + i"
                     class="flex flex-col items-center p-8 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group">
                     <div class="flex items-center justify-center w-16 h-16 mb-6">
                         <component :is="step.icon"
                             class="w-12 h-12 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
                     </div>
-                    <h3 class="mb-3 text-lg font-bold leading-tight tracking-wide text-center text-gray-900 transition-colors duration-300 home-heading group-hover:text-gray-900"
+                    <h3 class="text-2xl font-extrabold leading-tight text-center text-[#272727] font-space-grotesk transition-colors duration-300 home-heading sm:text-3xl md:text-xl group-hover:text-gray-900"
                         v-html="step.title" />
                     <p
-                        class="text-sm leading-relaxed text-center text-gray-600 transition-colors duration-300 group-hover:text-gray-700">
+                        class="text-sm leading-relaxed text-center text-[#272727] transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
                         {{ step.description }}
                     </p>
                 </div>

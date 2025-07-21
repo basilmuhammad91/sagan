@@ -1,34 +1,27 @@
 <template>
     <div class="w-full bg-[#feb5c0] relative overflow-hidden">
-        <!-- Slider Container -->
-        <div class="relative h-[500px]">
-            <!-- Slide 1 - Image Slide -->
+        <div class="relative">
             <div class="inset-0 transition-transform duration-700 ease-in-out"
                 :class="{ 'translate-x-0': currentSlide === 0, 'translate-x-full': currentSlide !== 0 }">
                 <div class="flex flex-col items-stretch h-full gap-0 mx-auto lg:flex-row">
-                    <!-- Right Side - Image -->
-                    <div class="relative order-1 w-full h-64 lg:flex-1 sm:h-80 lg:h-auto lg:order-2">
+                    <div class="relative order-1 w-full h-48 lg:w-[35%] sm:h-56 lg:h-auto lg:order-2">
                         <img src="/assets/images/banner3.png" alt="Wedding ceremony with flower petals"
-                            class="w-full h-full object-fit" />
+                            class="object-cover w-full h-full" />
                     </div>
 
-                    <!-- Left Side - Text Content -->
-                    <div
-                        class="w-full lg:w-[45%] px-5 sm:px-8 lg:pl-20 z-10 flex flex-col justify-center py-12 sm:py-16 order-2 lg:order-1">
-                        <h1
-                            class="home-heading mb-5 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] leading-tight tracking-tight uppercase text-center lg:text-left">
+                    <div class="w-full lg:w-[65%] px-5 sm:px-8 lg:pl-20 z-10 flex flex-col justify-center py-12 sm:py-16 order-2 lg:order-1">
+                        <h1 class="home-heading mb-5 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] leading-tight tracking-tight uppercase text-center lg:text-left">
                             SEND & RECEIVE CASH<br />
                             FOR LIFE'S BIG MOMENT
                         </h1>
-                        <p
-                            class="font-bold font-space-grotesk max-w-md mb-8 text-sm sm:text-base leading-relaxed opacity-95 text-[#272727] mx-auto lg:mx-0 text-center lg:text-left">
+                        <p class="font-semi-boldbold font-space-grotesk max-w-md mb-8 text-sm sm:text-base leading-relaxed opacity-95 text-[#272727] mx-auto lg:mx-0 text-center lg:text-left">
                             Across cultures, giving cash is a cherished tradition—whether for weddings,
                             birthdays, baby showers, or just to show appreciation. SAGANonline makes it
                             seamless, secure, and meaningful.
                         </p>
                         <div class="flex justify-center lg:justify-start">
                             <Link href="/register"
-                                class="inline-flex w-fit items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
+                                class="font-space-grotesk inline-flex w-fit items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
                             <span>Start</span>
                             <ArrowUpRight class="w-4 h-4 text-white" />
                             </Link>
@@ -37,29 +30,20 @@
                 </div>
             </div>
 
-            <!-- Slide 2 - Video Slide -->
             <div class="absolute inset-0 transition-transform duration-700 ease-in-out"
                 :class="{ 'translate-x-0': currentSlide === 1, '-translate-x-full': currentSlide !== 1 }">
                 <div class="relative w-full h-full">
-                    <!-- Video Background -->
-                    <video ref="videoElement" :src="videoSrc" class="object-cover w-full h-full" muted loop autoplay
-                        playsinline></video>
-
-                    <!-- Video Overlay -->
+                    <video ref="videoElement" :src="videoSrc" class="object-cover w-full h-full" muted loop autoplay playsinline></video>
                     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-
-                    <!-- Text Content Over Video -->
                     <div class="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
                         <div class="z-10 max-w-4xl text-center">
-                            <h1
-                                class="mb-5 text-2xl leading-tight tracking-tight text-white uppercase home-heading lg:text-4xl xl:text-6xl">
+                            <h1 class="mb-5 text-2xl leading-tight tracking-tight text-white uppercase home-heading lg:text-4xl xl:text-6xl">
                                 SEND & RECEIVE CASH FOR
                             </h1>
                             <h3 class="font-cormorant-upright text-2xl text-[#feb5c0] font-bold mb-2 lg:text-4xl xl:text-5xl">
                                 Shagun
                             </h3>
-                            <p
-                                class="max-w-2xl mx-auto mb-8 text-sm font-bold leading-relaxed text-white font-space-grotesk sm:text-base lg:text-lg opacity-90">
+                            <p class="max-w-2xl mx-auto mb-8 text-sm font-bold leading-relaxed text-white font-space-grotesk sm:text-base lg:text-lg opacity-90">
                                 Across cultures, giving cash is a cherished tradition
                             </p>
                             <div class="flex justify-center lg:justify-center">
@@ -74,7 +58,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Dots -->
             <div class="absolute z-20 flex space-x-2 transform -translate-x-1/2 bottom-6 left-1/2">
                 <button v-for="(slide, index) in totalSlides" :key="index" @click="goToSlide(index)" :class="[
                     'w-2 h-2 rounded-full transition-all duration-300',
@@ -84,7 +67,6 @@
                 ]"></button>
             </div>
 
-            <!-- Navigation Arrows (Optional) -->
             <button @click="previousSlide"
                 class="absolute z-20 p-2 text-white transition-all duration-300 transform -translate-y-1/2 bg-white rounded-full left-4 top-1/2 bg-opacity-20 hover:bg-opacity-30">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,7 +99,7 @@ export default {
             currentSlide: 0,
             totalSlides: 2,
             slideInterval: null,
-            autoSlideDelay: 5000, // 5 seconds
+            autoSlideDelay: 5000,
             videoSrc: '/assets/videos/event-promo.mp4',
             isHovered: false
         }
@@ -154,7 +136,6 @@ export default {
         goToSlide(index) {
             this.currentSlide = index
             this.handleVideoPlayback()
-            // Restart auto-slide timer
             this.stopAutoSlide()
             this.startAutoSlide()
         },
@@ -171,7 +152,6 @@ export default {
             })
         },
         setupVideoHandling() {
-            // Pause auto-slide on hover
             this.$el.addEventListener('mouseenter', () => {
                 this.isHovered = true
             })
@@ -193,12 +173,10 @@ export default {
     letter-spacing: -0.02em;
 }
 
-/* Ensure smooth video transitions */
 video {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Custom scrollbar for better aesthetics */
 ::-webkit-scrollbar {
     display: none;
 }
