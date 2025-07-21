@@ -1,20 +1,19 @@
 <template>
-    <div class="min-h-screen bg-gradient-to-br from-pink-100 via-pink-50 to-pink-200">
+    <div class="min-h-screen bg-gradient-to-br bg-[#FFE2E2]">
         <main class="px-4 pt-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="mb-5 text-center">
-                <h1
-                    class="px-4 mb-8 text-4xl font-light leading-tight text-gray-800 font-cormorant-upright md:text-5xl lg:text-6xl">
+                <h1 class="px-4 mb-8 text-5xl font-light leading-tight text-[#272727] font-cormorant-upright">
                     Join us in modernizing cash gift-giving—one<br class="hidden sm:block">
                     celebration at a time.
                 </h1>
-                <div class="flex justify-center mb-6 space-x-3">
+                <div class="flex justify-center mb-6 space-x-2">
                     <a v-for="social in socialLinks" :key="social.name" :href="social.url"
                         class="flex items-center justify-center w-10 h-10 text-white transition-colors duration-200 transform bg-[#000000] rounded-full hover:bg-gray-700 hover:scale-110"
                         :aria-label="social.name">
-                        <i :class="social.icon" class="text-sm"></i>
+                        <i :class="social.icon" class="text-lg"></i>
                     </a>
                 </div>
-                <div class="mb-6 text-sm font-medium text-[#000000]">
+                <div class="font-space-grotesk mb-6 text-sm font-medium text-[#272727]">
                     <span class="mr-4">@Saganonline</span>
                     <span>#Saganonline</span>
                 </div>
@@ -91,7 +90,7 @@
                 <div v-else>
                     <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
                         <div class="flex flex-col items-center md:col-span-1 md:items-start">
-                            <img src="/assets/images/logo.png" alt="Sagan Logo" class="w-40">
+                            <img src="/assets/images/logo.png" alt="Sagan Logo" class="w-45">
                         </div>
                         <!-- Mobile View: col-6 left + col-6 right -->
                         <div v-if="isMobile" class="grid grid-cols-2 gap-6 text-center">

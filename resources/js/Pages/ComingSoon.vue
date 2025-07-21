@@ -72,7 +72,7 @@
                 <div class="text-center">
                     <p class="text-md font-semibold text-[#272727]">
                         © 2024 - SAGAN Online | All Rights Reserved | Designed By
-                        DixonSoft
+                        DevanceSoft
                     </p>
                 </div>
             </div>

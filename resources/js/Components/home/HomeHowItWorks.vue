@@ -1,6 +1,5 @@
 <template>
     <section class="px-4 py-12 bg-secondary">
-        <!-- Toggle Buttons -->
         <div class="flex justify-center mb-8">
             <div style="border: solid 1px #FFB5C0" class="inline-flex p-1 overflow-hidden bg-white border border-gray-200 rounded-full shadow-sm">
                 <button @click="mode = 'host'" :class="[
@@ -18,7 +17,6 @@
             </div>
         </div>
 
-        <!-- Title and Subtitle -->
         <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-extrabold tracking-wide text-gray-900 home-heading">HOW IT WORKS</h2>
             <p class="max-w-md mx-auto text-lg font-medium leading-relaxed text-[#272727] font-space-grotesk">
@@ -27,19 +25,18 @@
             </p>
         </div>
 
-        <!-- Cards Section -->
         <div class="grid max-w-4xl gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
             <template v-if="mode === 'host'">
                 <div style="border: solid 1px #FFB5C0" v-for="(step, i) in hostSteps" :key="'host-' + i"
                     class="flex flex-col items-center p-8 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group">
-                    <div class="flex items-center justify-center w-16 h-16 mb-6">
+                    <div class="flex items-center justify-center w-20 h-20 mb-8">
                         <component :is="step.icon"
-                            class="w-12 h-12 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
+                            class="w-16 h-16 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
                     </div>
-                    <h3 class="text-2xl font-extrabold leading-tight text-center text-[#272727] font-space-grotesk transition-colors duration-300 home-heading sm:text-3xl md:text-xl group-hover:text-gray-900"
+                    <h3 class="mb-4 text-xl font-extrabold leading-tight text-center text-[#272727] font-space-grotesk transition-colors duration-300 home-heading group-hover:text-gray-900"
                         v-html="step.title" />
                     <p
-                        class="text-sm leading-relaxed text-center text-[#272727] transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
+                        class="font-large text-sm leading-relaxed text-center text-[#272727] transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
                         {{ step.description }}
                     </p>
                 </div>
@@ -48,11 +45,11 @@
             <template v-else>
                 <div style="border: solid 1px #FFB5C0" v-for="(step, i) in guestSteps" :key="'guest-' + i"
                     class="flex flex-col items-center p-8 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group">
-                    <div class="flex items-center justify-center w-16 h-16 mb-6">
+                    <div class="flex items-center justify-center w-20 h-20 mb-8">
                         <component :is="step.icon"
-                            class="w-12 h-12 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
+                            class="w-16 h-16 text-gray-800 transition-colors duration-300 stroke-2 group-hover:text-gray-900" />
                     </div>
-                    <h3 class="text-2xl font-extrabold leading-tight text-center text-[#272727] font-space-grotesk transition-colors duration-300 home-heading sm:text-3xl md:text-xl group-hover:text-gray-900"
+                    <h3 class="mb-4 text-xl font-extrabold leading-tight text-center text-[#272727] font-space-grotesk transition-colors duration-300 home-heading group-hover:text-gray-900"
                         v-html="step.title" />
                     <p
                         class="text-sm leading-relaxed text-center text-[#272727] transition-colors duration-300 font-space-grotesk group-hover:text-gray-700">
@@ -61,10 +58,9 @@
                 </div>
             </template>
         </div>
-        <!-- Bottom Timeline with Diamond -->
+
         <div class="flex justify-center mt-12" v-if="!isMobile">
             <div class="relative w-full max-w-xl px-8">
-                <!-- Timeline line -->
                 <div class="w-full h-1 rounded-full bg-primary"></div>
                 <div class="absolute left-0 w-3 h-3 transform rotate-45 -translate-y-1/2 rounded-sm bg-primary top-1/2">
                 </div>
@@ -137,7 +133,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-/* Custom styles if needed for your project */
-</style>

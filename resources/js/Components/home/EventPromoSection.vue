@@ -3,7 +3,7 @@
         <div class="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
             <!-- Video Section - Desktop -->
             <div v-if="!isMobile" class="flex justify-center w-full lg:w-1/2">
-                <div class="p-10 shadow-lg bg-primary rounded-3xl">
+                <div class="p-10 shadow-lg bg-[#FFB5C0] rounded-3xl">
                     <div class="relative w-[400px] h-[250px] m-auto mt-6 mb-6">
                         <img src="/assets/images/event-laptop.png" alt="Laptop Frame"
                             class="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none">
@@ -59,21 +59,22 @@
                     <li v-for="(feature, index) in features" :key="index"
                         :class="['flex items-start gap-3', isMobile ? 'justify-start' : 'justify-center lg:justify-start']">
                         <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                            <CircleCheckBig size="40" class="w-4 h-4 font-medium text-primary" />
+                            <CircleCheckBig size="40" color="#FF848B" class="w-4 h-4 font-medium text-[#FF848B]" />
                         </div>
-                        <span class="text-base font-medium leading-relaxed text-gray-700 md:text-lg">
+                        <span
+                            class="font-space-grotesk text-base font-medium leading-relaxed text-[#272727] md:text-lg">
                             {{ feature }}
                         </span>
                     </li>
                 </ul>
 
                 <h3
-                    class="mb-8 text-3xl font-bold leading-tight md:text-4xl home-heading font-space-grotesk text-primary lg:text-5xl">
+                    class="mb-8 text-2xl font-bold leading-tight md:text-4xl home-heading text-[#FF848B] lg:text-4xl">
                     START YOUR<br />
                     EVENT TODAY!
                 </h3>
 
-                <div class="flex justify-center lg:justify-start">
+                <div class="flex justify-center font-space-grotesk lg:justify-start">
                     <Link
                         class="cursor-pointer inline-flex w-fit items-center gap-1.5 px-6 md:px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]">
                     <span>Share</span>
