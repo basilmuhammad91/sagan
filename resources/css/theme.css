@@ -1,0 +1,76 @@
+:root {
+  --color-primary: #E8798B; /* red-500 */
+  --color-secondary:#FFF5F7;
+  --color-background: #f9fafb;
+  --color-text: #111827;
+    --font-path: '{{ asset('assets/fonts/RightGrotesk-Medium.otf') }}';
+}
+
+[data-theme="dark"] {
+  --color-background: #1f2937;
+  --color-text: #f9fafb;
+  --color-primary: #E8798B; /* red-400 in dark mode */
+}
+
+@font-face {
+  font-family: 'Right Grotesk';
+  src: local('RightGrotesk'), url('../../public/assets/fonts/RightGrotesk/RightGrotesk-Medium.woff2') format('woff2'), url('../../public/assets/fonts/RightGrotesk/RightGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: local('AktivGrotesk'), url('../../public/assets/fonts/AktivGrotesk/AktivGrotesk-Medium.woff2') format('woff2'), url('../../public/assets/fonts/AktivGrotesk/AktivGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.border-primary {
+  border-color: var(--color-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-footer {
+    background: #ffb5c0;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.navigation-font {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600 !important;
+}
+
+.home-heading {
+    /* font-family: 'Space Grotesk', sans-serif; */
+    font-family: 'Right Grotesk', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+}
+
+.font-space-grotesk {
+    /* font-family: 'Space Grotesk', sans-serif; */
+    font-family: 'Aktiv Grotesk', sans-serif !important;
+}
+
+.font-grotesk {
+    font-family: 'Aktiv Grotesk', sans-serif !important;
+}
+
+.home-tradition-para {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+}
+
+.font-cormorant-upright {
+  font-family: 'Cormorant Upright', serif;
+}
