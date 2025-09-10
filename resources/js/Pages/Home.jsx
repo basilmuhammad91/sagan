@@ -1,12 +1,11 @@
 import React from "react";
-// import { Link } from "@inertiajs/react";
-// import route from "ziggy-js";
+import AppLayout from "@/Layouts/AppLayout";
 
-export default function Dashboard() {
+export default function Home() {
   return (
-    <div>
+    <AppLayout>
       <h1>Dashboard</h1>
-      {/* <Link href={route("users.index")}>Users</Link> */}
-    </div>
+      <p>Welcome to your React + Inertia app 🚀</p>
+    </AppLayout>
   );
 }
