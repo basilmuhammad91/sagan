@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue';
+import react from '@vitejs/plugin-react';
 import path from 'path'
 
 export default defineConfig({
@@ -14,7 +14,7 @@ export default defineConfig({
             input: 'resources/js/app.js',
             refresh: true,
         }),
-        vue({
+        react({
             template: {
                 transformAssetUrls: {
                     base: null,
@@ -23,7 +23,7 @@ export default defineConfig({
             },
         }),
     ],
-    define: {
-        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
-    },
+    // define: {
+    //     __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
+    // },
 });

@@ -12,8 +12,9 @@
     <!-- Ziggy Routes (if using Ziggy) -->
     @routes
 
+     @viteReactRefresh
     <!-- Vite Assets -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 
     <!-- Inertia Head -->
     @inertiaHead
