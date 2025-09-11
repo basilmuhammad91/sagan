@@ -2,6 +2,7 @@ import React from "react";
 import { usePage, Link } from "@inertiajs/react";
 import PropertyCard from "@/Components/PropertyCard";
 import Pagination from "@/Components/Pagination";
+import AppLayout from "@/Layouts/AppLayout";
 
 export default function Index() {
   const { properties, filters } = usePage().props;
@@ -28,3 +29,6 @@ export default function Index() {
     </div>
   );
 }
+
+// Apply layout like Vue pages
+Index.layout = (page) => <AppLayout children={page} />;
