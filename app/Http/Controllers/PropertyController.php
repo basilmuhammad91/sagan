@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\PropertyRequest;
 use App\Http\Requests\SearchPropertyRequest;
 use App\Http\Resources\PropertyResource;
 use App\Models\Property;
 use App\Services\PropertyService;
+use Inertia\Inertia;
+use Inertia\Response;
 use Illuminate\Http\JsonResponse;
 
 class PropertyController extends Controller
@@ -19,21 +20,44 @@ class PropertyController extends Controller
         $this->propertyService = $propertyService;
     }
 
-    public function index(SearchPropertyRequest $request): JsonResponse
+    // Inertia page load + optional API style
+    public function index(SearchPropertyRequest $request): Response|JsonResponse
     {
         $properties = $this->propertyService->searchProperties(
             $request->validated(),
             $request->get('per_page', 10)
         );
 
-        return response()->json([
-            'data' => PropertyResource::collection($properties),
-            'meta' => [
-                'current_page' => $properties->currentPage(),
-                'last_page' => $properties->lastPage(),
-                'per_page' => $properties->perPage(),
-                'total' => $properties->total(),
-            ],
+        if ($request->wantsJson()) {
+            return response()->json([
+                'data' => PropertyResource::collection($properties),
+                'meta' => [
+                    'current_page' => $properties->currentPage(),
+                    'last_page' => $properties->lastPage(),
+                    'per_page' => $properties->perPage(),
+                    'total' => $properties->total(),
+                ],
+            ]);
+        }
+
+        return Inertia::render('Properties/Index', [
+            'properties' => PropertyResource::collection($properties),
+            'filters' => $request->all(),
+        ]);
+    }
+
+    public function show(Property $property, SearchPropertyRequest $request): Response|JsonResponse
+    {
+        $property->load(['city', 'availability']);
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'data' => new PropertyResource($property),
+            ]);
+        }
+
+        return Inertia::render('Properties/Show', [
+            'property' => new PropertyResource($property),
         ]);
     }
 
@@ -49,12 +73,6 @@ class PropertyController extends Controller
         ], 201);
     }
 
-    public function show(Property $property): JsonResponse
-    {
-        return response()->json([
-            'data' => new PropertyResource($property->load(['city', 'availability'])),
-        ]);
-    }
 
     public function update(PropertyRequest $request, Property $property): JsonResponse
     {
