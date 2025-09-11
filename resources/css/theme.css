@@ -1,19 +1,180 @@
 :root {
-  --color-primary: #E8798B; /* red-500 */
-  --color-secondary: #FCA5A5; /* red-300 */
-  --color-background: #f9fafb;
-  --color-text: #111827;
+  /* Primary Brand Colors */
+  --color-primary: #E8798B; /* Warm pink-red */
+  --color-primary-light: #F0A3B1; /* Lighter variant for backgrounds */
+  --color-primary-dark: #D65D73; /* Darker variant for hover states */
+  --color-secondary: #FCA5A5; /* Soft red accent */
+
+  /* Background Colors */
+  --color-background: #f9fafb; /* Main background */
+  --color-background-alt: #ffffff; /* Card/component backgrounds */
+  --color-background-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e0f2fe 100%);
+  --color-background-subtle: rgba(248, 250, 252, 0.8); /* Glassmorphism backgrounds */
+
+  /* Text Colors */
+  --color-text: #111827; /* Primary text */
+  --color-text-secondary: #6b7280; /* Secondary text */
+  --color-text-muted: #9ca3af; /* Muted text */
+  --color-text-light: #d1d5db; /* Very light text */
+
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #E8798B 0%, #F0A3B1 100%);
+  --gradient-secondary: linear-gradient(135deg, #FCA5A5 0%, #E8798B 100%);
+  --gradient-accent: linear-gradient(135deg, #E8798B 0%, #D65D73 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(232, 121, 139, 0.1) 0%, rgba(240, 163, 177, 0.05) 100%);
+
+  /* Border Colors */
+  --color-border: #e5e7eb;
+  --color-border-light: rgba(229, 231, 235, 0.5);
+  --color-border-focus: rgba(232, 121, 139, 0.3);
+
+  /* Shadow Colors */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-primary: 0 10px 15px -3px rgba(232, 121, 139, 0.2), 0 4px 6px -2px rgba(232, 121, 139, 0.1);
+  --shadow-primary-lg: 0 20px 25px -5px rgba(232, 121, 139, 0.15), 0 10px 10px -5px rgba(232, 121, 139, 0.1);
+
+  /* Interactive States */
+  --color-hover-overlay: rgba(232, 121, 139, 0.08);
+  --color-active-overlay: rgba(232, 121, 139, 0.12);
+  --color-focus-ring: rgba(232, 121, 139, 0.2);
+
+  /* Component Specific */
+  --card-background: rgba(255, 255, 255, 0.8);
+  --card-backdrop: blur(12px);
+  --nav-background: rgba(255, 255, 255, 0.95);
+  --pagination-background: rgba(255, 255, 255, 0.8);
 }
 
 [data-theme="dark"] {
-  --color-background: #1f2937;
-  --color-text: #f9fafb;
-  --color-primary: #E8798B; /* red-400 in dark mode */
+  /* Primary Brand Colors - Adjusted for dark mode */
+  --color-primary: #F0A3B1; /* Lighter pink for better contrast */
+  --color-primary-light: #F5B7C4; /* Even lighter variant */
+  --color-primary-dark: #E8798B; /* Original color as darker variant */
+  --color-secondary: #FCA5A5; /* Keep secondary consistent */
+
+  /* Background Colors */
+  --color-background: #0f172a; /* Dark slate background */
+  --color-background-alt: #1e293b; /* Card/component backgrounds */
+  --color-background-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  --color-background-subtle: rgba(30, 41, 59, 0.8); /* Dark glassmorphism */
+
+  /* Text Colors */
+  --color-text: #f8fafc; /* Primary text - light */
+  --color-text-secondary: #cbd5e1; /* Secondary text */
+  --color-text-muted: #94a3b8; /* Muted text */
+  --color-text-light: #64748b; /* Dark mode "light" text */
+
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #F0A3B1 0%, #F5B7C4 100%);
+  --gradient-secondary: linear-gradient(135deg, #FCA5A5 0%, #F0A3B1 100%);
+  --gradient-accent: linear-gradient(135deg, #F0A3B1 0%, #E8798B 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(240, 163, 177, 0.15) 0%, rgba(245, 183, 196, 0.08) 100%);
+
+  /* Border Colors */
+  --color-border: #334155;
+  --color-border-light: rgba(51, 65, 85, 0.5);
+  --color-border-focus: rgba(240, 163, 177, 0.4);
+
+  /* Shadow Colors - Adjusted for dark backgrounds */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --shadow-primary: 0 10px 15px -3px rgba(240, 163, 177, 0.3), 0 4px 6px -2px rgba(240, 163, 177, 0.15);
+  --shadow-primary-lg: 0 20px 25px -5px rgba(240, 163, 177, 0.25), 0 10px 10px -5px rgba(240, 163, 177, 0.15);
+
+  /* Interactive States */
+  --color-hover-overlay: rgba(240, 163, 177, 0.12);
+  --color-active-overlay: rgba(240, 163, 177, 0.18);
+  --color-focus-ring: rgba(240, 163, 177, 0.3);
+
+  /* Component Specific */
+  --card-background: rgba(30, 41, 59, 0.8);
+  --card-backdrop: blur(12px);
+  --nav-background: rgba(15, 23, 42, 0.95);
+  --pagination-background: rgba(30, 41, 59, 0.8);
 }
 
-
-
+/* Typography */
 .basil-heading {
   font-size: 20px;
   font-weight: bold;
+  color: var(--color-text);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Utility Classes for Theme Integration */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-primary-gradient {
+  background: var(--gradient-primary);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.shadow-primary {
+  box-shadow: var(--shadow-primary);
+}
+
+.bg-card {
+  background-color: var(--card-background);
+  backdrop-filter: var(--card-backdrop);
+}
+
+.bg-nav {
+  background-color: var(--nav-background);
+  backdrop-filter: var(--card-backdrop);
+}
+
+/* Custom animations and transitions */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Focus states using theme colors */
+.focus-primary:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
+}
+
+/* Hover effects using theme colors */
+.hover-primary:hover {
+  background-color: var(--color-hover-overlay);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary-lg);
+}
+
+/* Grid pattern for background texture */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(232, 121, 139, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 121, 139, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
