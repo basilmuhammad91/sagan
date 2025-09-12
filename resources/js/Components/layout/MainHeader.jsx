@@ -31,7 +31,7 @@ export default function MainHeader() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
+    { href: "/properties", label: "Properties" },
     { href: "/about", label: "About Us" },
     { href: "/faq", label: "FAQ" },
   ];
@@ -100,7 +100,7 @@ export default function MainHeader() {
             <div className="font-medium">{user.name}</div>
             <div className="text-gray-500">{user.email}</div>
           </div>
-          {["/profile", "/dashboard", "/settings"].map((href) => (
+          {["/My Bookings", "/dashboard", "/settings"].map((href) => (
             <Link
               key={href}
               href={href}

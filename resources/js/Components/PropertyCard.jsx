@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react";
 
 export default function PropertyCard({ property }) {
   return (
-    <div className="group relative bg-white rounded-xl shadow hover:shadow-lg border border-slate-200 transition-all duration-300 overflow-hidden">
+    <div className="group relative bg-card-background rounded-xl shadow hover:shadow-lg border border-color-border transition-all duration-300 overflow-hidden">
       {/* Image */}
       <div className="relative overflow-hidden">
         <img
@@ -14,7 +14,7 @@ export default function PropertyCard({ property }) {
 
         {/* Price badge */}
         <div className="absolute bottom-3 left-3">
-          <div className="bg-white px-3 py-1.5 rounded-md shadow text-slate-800">
+          <div className="bg-card-background px-3 py-1.5 rounded-md shadow text-color-text">
             <span className="text-sm font-semibold">
               ${property.price_per_night}
             </span>
@@ -27,7 +27,7 @@ export default function PropertyCard({ property }) {
       <div className="p-5 space-y-3">
         {/* Title + Description */}
         <div>
-          <h2 className="text-lg font-semibold text-slate-800 line-clamp-1 group-hover:text-slate-900">
+          <h2 className="text-lg font-semibold text-color-text line-clamp-1 group-hover:text-color-text-secondary">
             {property.title}
           </h2>
           <p className="text-sm text-slate-500 line-clamp-2 mt-1">
@@ -39,7 +39,7 @@ export default function PropertyCard({ property }) {
         <div className="flex items-center justify-between pt-2">
           <div className="flex items-center space-x-2 text-sm text-slate-600">
             <svg
-              className="w-4 h-4 text-slate-400"
+              className="w-4 h-4 text-color-text-muted"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ export default function PropertyCard({ property }) {
         <div className="pt-3">
           <Link
             href={`/properties/${property.id}`}
-            className="flex items-center justify-center py-2 px-4 w-full bg-blue-500 text-white rounded-md font-medium text-sm hover:bg-blue-600 transition-colors"
+            className="flex items-center justify-center py-2 px-4 w-full bg-color-primary text-color-background-alt rounded-md font-medium text-sm hover:bg-color-primary-dark transition-colors"
           >
             <span>View Details</span>
             <svg
