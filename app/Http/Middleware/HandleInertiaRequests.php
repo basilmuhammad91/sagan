@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy as ZiggyZiggy;
 use Tightenco\Ziggy\Ziggy;
+use Illuminate\Support\Facades\Auth;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -38,9 +39,20 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
+            // 'auth' => [
+            //     'user' => $request->user(),
+            //     'is_logged_in' => auth()->check(),
+            // ],
             'auth' => [
-                'user' => $request->user(),
-                'is_logged_in' => auth()->check(),
+                'user' => fn() => Auth::user()
+                    ? [
+                        'id' => Auth::id(),
+                        'name' => Auth::user()->name,
+                        'roles' => Auth::user()->roles->pluck('name'),
+                        'is_admin' => Auth::user()->hasRole('admin'),
+                        'is_guest' => Auth::user()->hasRole('guest'),
+                    ]
+                    : null,
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new ZiggyZiggy())->toArray(), [

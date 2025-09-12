@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function role()
+    {
+        return $this->roles()->first();
+    }
+
     public function hasRole(string $role): bool
     {
         return $this->roles()->where('name', $role)->exists();

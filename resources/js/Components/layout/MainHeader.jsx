@@ -4,7 +4,7 @@ import { Link, usePage } from "@inertiajs/react";
 export default function MainHeader() {
   const { props } = usePage();
   const user = props.auth?.user || null;
-
+console.log("user...", user)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
