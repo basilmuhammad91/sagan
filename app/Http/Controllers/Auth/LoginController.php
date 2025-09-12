@@ -19,10 +19,14 @@ class LoginController extends Controller
         return Inertia::render('Auth/Login');
     }
 
-    protected function authenticated(Request $request, $user)
+   protected function authenticated(Request $request, $user)
     {
         if ($request->wantsJson()) {
             return response()->json(['redirect' => '/']);
+        }
+
+        if ($user->hasRole('admin')) {
+            return Inertia::location('/admin/properties');
         }
 
         return Inertia::location('/properties');

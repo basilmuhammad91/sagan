@@ -18,11 +18,13 @@ class PropertyController extends Controller
     public function __construct(PropertyService $propertyService)
     {
         $this->propertyService = $propertyService;
+        // $this->middleware('guest');
     }
 
     // Inertia page load + optional API style
     public function index(SearchPropertyRequest $request): Response|JsonResponse
     {
+        // $this->authorize('index', Property::class);
         $properties = $this->propertyService->searchProperties(
             $request->validated(),
             $request->get('per_page', 10)
@@ -48,6 +50,8 @@ class PropertyController extends Controller
 
     public function show(Property $property, SearchPropertyRequest $request): Response|JsonResponse
     {
+        // $this->authorize('show', Property::class);
+
         $property->load(['city', 'availability']);
 
         if ($request->wantsJson()) {

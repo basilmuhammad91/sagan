@@ -7,6 +7,11 @@ use App\Models\User;
 
 class PropertyPolicy
 {
+     public function index(User $user): bool
+    {
+        return $user->isGuest();
+    }
+
     public function viewAny(?User $user): bool
     {
         return true;
@@ -15,6 +20,11 @@ class PropertyPolicy
     public function view(?User $user, Property $property): bool
     {
         return true;
+    }
+
+    public function show(User $user): bool
+    {
+        return $user->isGuest();
     }
 
     public function create(User $user): bool

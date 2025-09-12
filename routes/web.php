@@ -1,44 +1,56 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\BookingController;
-use Inertia\Inertia;
+use App\Http\Controllers\Admin\PropertyController as AdminPropertyController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
 
-// Remove Auth::routes(); and replace with:
+// Static Pages
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-// Login Routes
+// Guest Routes (Login & Register)
 Route::middleware('guest')->group(function () {
+    // Login
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 
-    // Registration Routes
+    // Register
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
+
+    // Password Reset
+    Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
+// Authenticated Routes
+Route::middleware('auth')->group(function () {
+    // Logout
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    // Admin Routes
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/properties', [AdminPropertyController::class, 'index'])->name('properties.index');
+        Route::get('/bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
+    });
+});
+
+// Public Property Routes
 Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
 Route::get('/properties/{property}', [PropertyController::class, 'show'])->name('properties.show');
-Route::get('/', function () {
-    return redirect()->route('properties.index');
-});
 
-// Logout route (should be accessible to authenticated users only)
-Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
-
-
-// Password Reset Routes
-Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
-
-
+// Root Redirect
+Route::get('/', fn () => redirect()->route('properties.index'));
