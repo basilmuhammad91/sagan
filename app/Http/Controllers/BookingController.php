@@ -47,13 +47,14 @@ class BookingController extends Controller
         ]);
     }
 
-    public function store(BookingRequest $request, Property $property): JsonResponse
+    public function store(BookingRequest $request): JsonResponse
     {
         logger("storing booking...");
+
         try {
             $booking = $this->bookingService->createBooking(
                 auth()->user(),
-                $property,
+                $request->property_id,   // pass ID instead of model
                 $request->validated()
             );
 
@@ -67,6 +68,7 @@ class BookingController extends Controller
             ], 422);
         }
     }
+
 
     public function show(Booking $booking): JsonResponse
     {

@@ -15,7 +15,7 @@ Route::post('/properties/{property}/check-availability', [PropertyController::cl
 Route::middleware('auth:sanctum')->group(function () {
     // Route::get('/bookings', [BookingController::class, 'index']);
     // Route::get('/bookings/{booking}', [BookingController::class, 'show']);
-    Route::apiResource('bookings', BookingController::class)->only(['index', 'show', 'store']);
+    // Route::apiResource('bookings', BookingController::class)->only(['index', 'show', 'store']);
     Route::post('/properties/{property}/bookings', [BookingController::class, 'store']);
     Route::post('/bookings/{booking}/cancel', [BookingController::class, 'cancel']);
 
@@ -24,11 +24,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/admin/properties/{property}/availability', [AdminPropertyController::class, 'manageAvailability']);
         Route::get('/admin/properties/{property}/availability', [AdminPropertyController::class, 'getAvailability']);
 
-        Route::get('/bookings', [AdminBookingController::class, 'index']);
-        Route::get('/bookings/pending', [AdminBookingController::class, 'pending']);
-        Route::get('/bookings/{booking}', [AdminBookingController::class, 'show']);
-        Route::get('/admin/properties/{property}/bookings', [AdminBookingController::class, 'propertyBookings']);
-        Route::post('/bookings/{booking}/confirm', [BookingController::class, 'confirm']);
-        Route::post('/bookings/{booking}/reject', [BookingController::class, 'reject']);
+        // Route::get('/bookings', [AdminBookingController::class, 'apiindex']);
+        // Route::get('/bookings/pending', [AdminBookingController::class, 'apipending']);
+        // Route::get('/bookings/{booking}', [AdminBookingController::class, 'apishow']);
+        // Route::get('/admin/properties/{property}/bookings', [AdminBookingController::class, 'apipropertyBookings']);
+        // Route::post('/bookings/{booking}/confirm', [BookingController::class, 'apiconfirm']);
+        // Route::post('/bookings/{booking}/reject', [BookingController::class, 'apireject']);
     });
 });

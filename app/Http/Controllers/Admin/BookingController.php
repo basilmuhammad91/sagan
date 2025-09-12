@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BookingResource;
@@ -10,7 +10,7 @@ use App\Services\BookingService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class AdminBookingController extends Controller
+class BookingController extends Controller
 {
     protected BookingService $bookingService;
 
