@@ -14,7 +14,7 @@ class PropertyResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'price_per_night' => $this->price_per_night,
-            'amenities' => $this->amenities,
+            'amenities' => $this->amenities ? json_decode($this->amenities) : [],
             'images' => $this->images ? json_decode($this->images) : [],
             'is_active' => $this->is_active,
             'city' => new CityResource($this->whenLoaded('city')),

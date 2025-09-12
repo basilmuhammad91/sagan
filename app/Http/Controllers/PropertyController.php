@@ -53,11 +53,13 @@ class PropertyController extends Controller
         if ($request->wantsJson()) {
             return response()->json([
                 'data' => new PropertyResource($property),
+                'availability' => $property->availability,
             ]);
         }
 
         return Inertia::render('Properties/Show', [
             'property' => new PropertyResource($property),
+            'availability' => $property->availability,
         ]);
     }
 
