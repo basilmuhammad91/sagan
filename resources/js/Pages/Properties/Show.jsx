@@ -110,8 +110,8 @@ export default function Show() {
 
     router.post('/bookings', {
       property_id: property.id,
-      check_in: selectedDates.checkIn.toISOString().split('T')[0],
-      check_out: selectedDates.checkOut.toISOString().split('T')[0],
+      start_date: selectedDates.checkIn.toISOString().split('T')[0],
+      end_date: selectedDates.checkOut.toISOString().split('T')[0],
       total_price: totalPrice
     });
   };

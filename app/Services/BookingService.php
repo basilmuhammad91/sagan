@@ -13,9 +13,13 @@ use Carbon\Carbon;
 
 class BookingService
 {
-    public function createBooking(User $user, Property $property, array $bookingData): Booking
+    public function createBooking(User $user, int $propertyId, array $bookingData): Booking
     {
-        return DB::transaction(function () use ($user, $property, $bookingData) {
+        logger("creating booking...");
+
+        return DB::transaction(function () use ($user, $propertyId, $bookingData) {
+            $property = Property::findOrFail($propertyId);
+
             $startDate = Carbon::parse($bookingData['start_date']);
             $endDate = Carbon::parse($bookingData['end_date']);
 
@@ -35,13 +39,13 @@ class BookingService
             $totalAmount = $nights * $property->price_per_night;
 
             return Booking::create([
-                'user_id' => $user->id,
-                'property_id' => $property->id,
-                'start_date' => $startDate,
-                'end_date' => $endDate,
-                'nights' => $nights,
+                'user_id'      => $user->id,
+                'property_id'  => $property->id,
+                'start_date'   => $startDate,
+                'end_date'     => $endDate,
+                'nights'       => $nights,
                 'total_amount' => $totalAmount,
-                'status' => 'pending',
+                'status'       => 'pending',
             ]);
         });
     }

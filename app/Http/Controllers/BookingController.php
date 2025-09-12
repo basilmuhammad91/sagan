@@ -22,6 +22,7 @@ class BookingController extends Controller
 
     public function index(Request $request): JsonResponse
     {
+        logger(200000000000);
         $user = auth()->user();
 
         if ($user->isAdmin()) {
@@ -47,27 +48,34 @@ class BookingController extends Controller
         ]);
     }
 
-    public function store(BookingRequest $request): JsonResponse
+    public function store(Request $request)
     {
         logger("storing booking...");
 
-        try {
-            $booking = $this->bookingService->createBooking(
-                auth()->user(),
-                $request->property_id,   // pass ID instead of model
-                $request->validated()
-            );
+        // try {
+        $validated = $request->validate([
+            'property_id' => ['required', 'exists:properties,id'],
+            'start_date' => ['required', 'date', 'after_or_equal:today'],
+            'end_date' => ['required', 'date', 'after:start_date'],
+        ]);
 
-            return response()->json([
-                'message' => 'Booking created successfully',
-                'data' => new BookingResource($booking),
-            ], 201);
-        } catch (BookingException $e) {
-            return response()->json([
-                'message' => $e->getMessage(),
-            ], 422);
-        }
+        $booking = $this->bookingService->createBooking(
+            auth()->user(),
+            $validated['property_id'],
+            $validated
+        );
+
+        return response()->json([
+            'message' => 'Booking created successfully',
+            'data' => new BookingResource($booking),
+        ], 201);
+        // } catch (BookingException $e) {
+        //     return response()->json([
+        //         'message' => $e->getMessage(),
+        //     ], 422);
+        // }
     }
+
 
 
     public function show(Booking $booking): JsonResponse
