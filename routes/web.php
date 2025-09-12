@@ -6,8 +6,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Admin\PropertyController as AdminPropertyController;
-use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -44,8 +44,10 @@ Route::middleware('auth')->group(function () {
     // Admin Routes
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/properties', [AdminPropertyController::class, 'index'])->name('properties.index');
-        Route::get('/bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
     });
+
+    Route::resource('bookings', BookingController::class);
+
 });
 
 // Public Property Routes

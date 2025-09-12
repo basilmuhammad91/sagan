@@ -16,7 +16,8 @@ export default function Show() {
   const [totalNights, setTotalNights] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Process availability data to get available date ranges with pricing
+  const msPerDay = 1000 * 60 * 60 * 24;
+
   const processAvailability = () => {
     const availableDates = new Map();
 
@@ -24,12 +25,11 @@ export default function Show() {
       if (range.is_available) {
         const start = new Date(range.start_date);
         const end = new Date(range.end_date);
-        const price = range.price || property?.price_per_night;
-
-        // Add each day in the range
+        const rawPrice = range.price ?? property?.price_per_night;
+        const price = Number(rawPrice);
         for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
           const dateStr = d.toDateString();
-          availableDates.set(dateStr, price);
+          availableDates.set(dateStr, Number.isNaN(price) ? 0 : price);
         }
       }
     });
@@ -44,7 +44,10 @@ export default function Show() {
   };
 
   const getDatePrice = (date) => {
-    return availableDatesMap.get(date.toDateString()) || property?.price_per_night;
+    const val = availableDatesMap.get(date.toDateString());
+    const fallback = Number(property?.price_per_night) || 0;
+    const num = Number(val ?? fallback);
+    return Number.isNaN(num) ? fallback : num;
   };
 
   const isDateInRange = (date) => {
@@ -81,11 +84,16 @@ export default function Show() {
       return;
     }
 
-    const nights = Math.ceil((selectedDates.checkOut - selectedDates.checkIn) / (1000 * 60 * 60 * 24));
-    let totalCost = 0;
+    const start = new Date(selectedDates.checkIn);
+    const end = new Date(selectedDates.checkOut);
+    start.setHours(0, 0, 0, 0);
+    end.setHours(0, 0, 0, 0);
 
-    // Calculate price for each night using specific pricing if available
-    for (let d = new Date(selectedDates.checkIn); d < selectedDates.checkOut; d.setDate(d.getDate() + 1)) {
+    const diff = end.getTime() - start.getTime();
+    const nights = Math.max(0, Math.round(diff / msPerDay));
+
+    let totalCost = 0;
+    for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
       totalCost += getDatePrice(d);
     }
 
@@ -145,7 +153,6 @@ export default function Show() {
     });
   };
 
-  // Image slider functions
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
       prev === property?.images?.length - 1 ? 0 : prev + 1
@@ -162,16 +169,16 @@ export default function Show() {
     setCurrentImageIndex(index);
   };
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Property Images and Details */}
         <div className="lg:col-span-2 space-y-8">
-          {/* Image Slider */}
           <div className="relative group rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/50 shadow-lg">
             {property?.images && property.images.length > 0 && (
               <>
-                {/* Main Image */}
                 <div className="relative h-96 md:h-[500px] overflow-hidden">
                   <img
                     src={property.images[currentImageIndex]}
@@ -180,7 +187,6 @@ export default function Show() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  {/* Navigation Arrows */}
                   {property.images.length > 1 && (
                     <>
                       <button
@@ -202,7 +208,6 @@ export default function Show() {
                     </>
                   )}
 
-                  {/* Image Counter */}
                   {property.images.length > 1 && (
                     <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
                       {currentImageIndex + 1} / {property.images.length}
@@ -210,7 +215,6 @@ export default function Show() {
                   )}
                 </div>
 
-                {/* Thumbnail Navigation */}
                 {property.images.length > 1 && (
                   <div className="p-4">
                     <div className="flex space-x-2 overflow-x-auto pb-2">
@@ -238,7 +242,6 @@ export default function Show() {
             )}
           </div>
 
-          {/* Property Info */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-200/50 shadow-lg">
             <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
               {property?.title}
@@ -271,7 +274,6 @@ export default function Show() {
           </div>
         </div>
 
-        {/* Booking Panel */}
         <div className="lg:col-span-1">
           <div className="sticky top-8 bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50 shadow-lg">
             <div className="mb-6">
@@ -284,11 +286,9 @@ export default function Show() {
               <p className="text-sm text-slate-500 mt-1">Base price (may vary by date)</p>
             </div>
 
-            {/* Calendar */}
             <div className="mb-6">
               <h3 className="text-lg font-semibold text-slate-700 mb-4">Select Dates</h3>
 
-              {/* Calendar Header */}
               <div className="flex items-center justify-between mb-4">
                 <button
                   onClick={prevMonth}
@@ -311,7 +311,6 @@ export default function Show() {
                 </button>
               </div>
 
-              {/* Days of week */}
               <div className="grid grid-cols-7 gap-1 mb-2">
                 {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
                   <div key={day} className="text-center text-xs font-medium text-slate-500 py-2">
@@ -320,7 +319,6 @@ export default function Show() {
                 ))}
               </div>
 
-              {/* Calendar Grid */}
               <div className="grid grid-cols-7 gap-1">
                 {getDaysInMonth(currentMonth).map((date, idx) => {
                   if (!date) {
@@ -330,9 +328,9 @@ export default function Show() {
                   const isAvailable = isDateAvailable(date);
                   const isSelected = isDateSelected(date);
                   const isInRange = isDateInRange(date);
-                  const isPast = date < new Date().setHours(0, 0, 0, 0);
+                  const isPast = date < today;
                   const datePrice = getDatePrice(date);
-                  const hasCustomPrice = datePrice !== property?.price_per_night;
+                  const hasCustomPrice = datePrice !== Number(property?.price_per_night);
 
                   return (
                     <button
@@ -367,7 +365,6 @@ export default function Show() {
               </div>
             </div>
 
-            {/* Selected Dates Summary */}
             {selectedDates.checkIn && (
               <div className="mb-6 p-4 bg-gradient-to-r from-pink-50 to-red-50 rounded-xl border border-pink-200">
                 <div className="space-y-2">
@@ -385,16 +382,17 @@ export default function Show() {
                         <span className="text-slate-600">{totalNights} nights:</span>
                         <span className="font-bold text-pink-600">${totalPrice}</span>
                       </div>
-                      <div className="text-xs text-slate-500">
-                        Avg: ${Math.round(totalPrice / totalNights)}/night
-                      </div>
+                      {totalNights > 0 && (
+                        <div className="text-xs text-slate-500">
+                          Avg: ${Math.round(totalPrice / totalNights)}/night
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
               </div>
             )}
 
-            {/* Book Button */}
             <button
               onClick={handleBooking}
               disabled={!selectedDates.checkIn || !selectedDates.checkOut}

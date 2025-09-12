@@ -50,6 +50,7 @@ class BookingController extends Controller
 
     public function store(BookingRequest $request, Property $property): JsonResponse
     {
+        logger("storing booking...");
         try {
             $booking = $this->bookingService->createBooking(
                 auth()->user(),
