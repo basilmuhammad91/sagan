@@ -25,7 +25,7 @@ class LoginController extends Controller
             return response()->json(['redirect' => '/']);
         }
 
-        return Inertia::location('/');
+        return Inertia::location('/properties');
     }
 
      protected function sendLoginResponse(Request $request)

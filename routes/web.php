@@ -11,7 +11,6 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BookingController;
 use Inertia\Inertia;
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
 // Remove Auth::routes(); and replace with:
@@ -28,6 +27,9 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
 Route::get('/properties/{property}', [PropertyController::class, 'show'])->name('properties.show');
+Route::get('/', function () {
+    return redirect()->route('properties.index');
+});
 
 // Logout route (should be accessible to authenticated users only)
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');

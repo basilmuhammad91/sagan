@@ -13,11 +13,12 @@ class PropertyFactory extends Factory
 
         $amenities = $this->faker->randomElements($amenitiesOptions, rand(2, 4));
 
-        $images = [
-            "https://via.placeholder.com/600x400.png?text=Property+" . $this->faker->unique()->numberBetween(1, 500),
-            "https://via.placeholder.com/600x400.png?text=Interior",
-            "https://via.placeholder.com/600x400.png?text=Exterior"
+       $images = [
+            "https://picsum.photos/600/400?random=" . $this->faker->unique()->numberBetween(1, 500),
+            "https://picsum.photos/600/400?random=" . $this->faker->unique()->numberBetween(501, 1000),
+            "https://picsum.photos/600/400?random=" . $this->faker->unique()->numberBetween(1001, 1500),
         ];
+
 
         return [
             'title' => $this->faker->sentence(3),
